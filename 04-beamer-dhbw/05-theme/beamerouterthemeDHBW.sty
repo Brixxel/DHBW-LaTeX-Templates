@@ -1,0 +1,31 @@
+\ProvidesPackage{05-theme/beamerouterthemeDHBW}[2025/01/01 DHBW Outer Theme]
+\RequirePackage{tikz}
+
+%%%%% FRAMETITLE %%%%%
+\setbeamertemplate{frametitle}{%
+  \vspace{0.6em}\hspace{0.4em}%
+  \usebeamerfont{frametitle}\insertframetitle\par
+  \vspace{-0.3em}%
+  {\color{dhbwRed}\rule{\dimexpr\paperwidth-2cm\relax}{1.5pt}}%
+}
+
+%%%%% FOOTLINE %%%%%
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.35\paperwidth, ht=2.5ex, dp=1ex, leftskip=0.8cm]{footline}%
+      \usebeamerfont{footline}\insertshortauthor%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.45\paperwidth, ht=2.5ex, dp=1ex, center]{footline}%
+      \usebeamerfont{footline}\insertshorttitle%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.2\paperwidth, ht=2.5ex, dp=1ex, rightskip=0.8cm]{footline}%
+      \usebeamerfont{footline}\hfill\insertframenumber\,/\,\inserttotalframenumber%
+    \end{beamercolorbox}%
+  }\vspace{2pt}%
+}
+
+%%%%% NAVIGATION AUS %%%%%
+\setbeamertemplate{navigation symbols}{}
+
+\endinput

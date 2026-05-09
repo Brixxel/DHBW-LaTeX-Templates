@@ -1,0 +1,25 @@
+%%%%% EIGENE MAKROS %%%%%
+
+% Highlight in DHBW-Rot
+\newcommand{\highlight}[1]{\textcolor{dhbwRed}{\textbf{#1}}}
+
+% Zitatfolie
+\newcommand{\quoteslide}[2]{%
+  \begin{frame}[plain]
+    \vfill
+    \begin{center}
+      \large\itshape ``#1''\\[1em]
+      \normalfont\normalsize --- #2
+    \end{center}
+    \vfill
+  \end{frame}%
+}
+
+% Vollbild-Bild-Folie
+\newcommand{\fullimageframe}[1]{%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture, overlay]
+      \node[at=(current page.center)] {\includegraphics[width=\paperwidth]{#1}};
+    \end{tikzpicture}
+  \end{frame}%
+}

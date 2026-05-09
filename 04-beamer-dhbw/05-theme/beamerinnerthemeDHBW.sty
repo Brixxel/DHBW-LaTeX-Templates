@@ -1,0 +1,42 @@
+\ProvidesPackage{05-theme/beamerinnerthemeDHBW}[2025/01/01 DHBW Inner Theme]
+\RequirePackage{tikz}
+
+%%%%% TITELFOLIE %%%%%
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \fill[dhbwRed] (current page.south west) rectangle (current page.north east);
+
+    % Logo oben rechts (weiß auf rotem Hintergrund? -> ggf. weiße Variante nutzen)
+    \node[anchor=north east] at ([xshift=-0.8cm, yshift=-0.6cm]current page.north east)
+      {\includegraphics[height=1.1cm]{dhbw.jpg}};
+
+    % Titelblock
+    \node[anchor=west, text width=0.85\paperwidth, white]
+      at ([xshift=1cm, yshift=0.8cm]current page.west)
+      {\usebeamerfont{title}\inserttitle\\[0.5em]
+       \usebeamerfont{subtitle}\insertsubtitle};
+
+    % Autor & Datum
+    \node[anchor=south west, white]
+      at ([xshift=1cm, yshift=0.6cm]current page.south west)
+      {\usebeamerfont{author}\insertauthor \quad|\quad \insertdate};
+  \end{tikzpicture}%
+}
+
+%%%%% ABSCHNITTSTRENNER %%%%%
+\AtBeginSection[]{%
+  \begin{frame}[plain, noframenumbering]
+    \begin{tikzpicture}[remember picture, overlay]
+      \fill[dhbwRed] (current page.south west) rectangle (current page.north east);
+      \node[anchor=west, text width=0.85\paperwidth, white]
+        at ([xshift=1cm]current page.west)
+        {\usebeamerfont{title}\insertsectionhead};
+    \end{tikzpicture}
+  \end{frame}%
+}
+
+%%%%% ITEMIZE %%%%%
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{--}
+
+\endinput
