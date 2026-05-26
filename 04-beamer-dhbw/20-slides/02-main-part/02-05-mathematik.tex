@@ -1,0 +1,27 @@
+\begin{frame}{Mathematische Formeln}
+  \textbf{Inline:} Die Identität $e^{i\pi} + 1 = 0$ verbindet fünf Konstanten.
+
+  \vspace{0.6em}
+  \textbf{Abgesetzt:}
+  \[
+    \mathcal{L}(\theta) = -\frac{1}{N}\sum_{i=1}^{N}
+      \log p_\theta(y_i \mid x_i)
+  \]
+
+  \textbf{Mehrzeilig (align):}
+  \begin{align*}
+    \nabla_\theta \mathcal{L}(\theta)
+      &= -\frac{1}{N}\sum_{i=1}^{N} \nabla_\theta \log p_\theta(y_i \mid x_i)\\
+      &\approx -\mathbb{E}_{(x,y)\sim\mathcal{D}}\bigl[\nabla_\theta \log p_\theta(y\mid x)\bigr]
+  \end{align*}
+
+  \textbf{Loss:}
+  \[
+    \mathfrak{G} \mathfrak{D} 
+  \]
+
+  \textbf{Matrix:}
+  \[
+    \mathbf{A} = \begin{pmatrix} a_{11} & a_{12}\\ a_{21} & a_{22}\end{pmatrix}
+  \]
+\end{frame}

@@ -1,23 +1,49 @@
 \ProvidesPackage{05-theme/beamercolorthemeDHBW}[2025/01/01 DHBW Colors]
 \RequirePackage{xcolor}
 
-\definecolor{dhbwRed}{HTML}{E2001A}
-\definecolor{dhbwDark}{HTML}{2B2B2B}
-\definecolor{dhbwGray}{HTML}{F2F2F2}
-\definecolor{dhbwMid}{HTML}{8C8C8C}
+%%%%% PRIMÄRE FARBPALETTE %%%%%
+\definecolor{dhbwRed}{HTML}{A50E1C}      % dunkles Rot — Primärfarbe
+\definecolor{dhbwRedBright}{HTML}{E2001A} % knalliges Rot — sparsamer Akzent
+\definecolor{dhbwDark}{HTML}{1F1F1F}      % Haupttext
+\definecolor{dhbwMid}{HTML}{6B6B6B}       % Sekundärtext
+\definecolor{dhbwLight}{HTML}{B8B8B8}     % tertiär / Linien
+\definecolor{dhbwBg}{HTML}{F7F7F7}        % Block-Hintergrund
 
+%%%%% BEAMER-MAPPINGS %%%%%
 \setbeamercolor{normal text}{fg=dhbwDark, bg=white}
 \setbeamercolor{structure}{fg=dhbwRed}
-\setbeamercolor{frametitle}{fg=dhbwRed, bg=white}
-\setbeamercolor{title}{fg=white}
-\setbeamercolor{subtitle}{fg=white}
-\setbeamercolor{author}{fg=white}
-\setbeamercolor{date}{fg=white}
+\setbeamercolor{frametitle}{fg=dhbwDark, bg=white}
+\setbeamercolor{title}{fg=dhbwDark}
+\setbeamercolor{subtitle}{fg=dhbwMid}
+\setbeamercolor{author}{fg=dhbwMid}
+\setbeamercolor{date}{fg=dhbwMid}
+
+%%%%% LISTEN — dunkles Rot als Standard %%%%%
 \setbeamercolor{itemize item}{fg=dhbwRed}
-\setbeamercolor{itemize subitem}{fg=dhbwMid}
+\setbeamercolor{itemize subitem}{fg=dhbwLight}
+\setbeamercolor{enumerate item}{fg=dhbwRed}
 \setbeamercolor{section in toc}{fg=dhbwDark}
-\setbeamercolor{footline}{fg=dhbwMid}
-\setbeamercolor{block title}{fg=white, bg=dhbwRed}
-\setbeamercolor{block body}{fg=dhbwDark, bg=dhbwGray}
+\setbeamercolor{footline}{fg=dhbwLight}
+
+%%%%% NAVIGATION HEADLINE %%%%%
+\setbeamercolor{section in head/foot}{fg=dhbwMid, bg=white}
+\setbeamercolor{subsection in head/foot}{fg=dhbwRed, bg=white}
+
+%%%%% MINI-FRAMES (Dots) %%%%%
+% Aktive Mini-Frames: dunkles Rot
+% Schon gezeigte: mittelgrau
+% Kommende: hellgrau
+\setbeamercolor{mini frame}{fg=dhbwRed, bg=dhbwLight}
+
+%%%%% BLÖCKE — dezent grau %%%%%
+\setbeamercolor{block title}{fg=dhbwDark, bg=dhbwBg}
+\setbeamercolor{block body}{fg=dhbwDark, bg=dhbwBg}
+\setbeamercolor{block title example}{fg=white, bg=dhbwMid}
+\setbeamercolor{block body example}{fg=dhbwDark, bg=dhbwBg}
+
+%%%%% ALERT — hier darf's knallen %%%%%
+\setbeamercolor{block title alerted}{fg=white, bg=dhbwRedBright}
+\setbeamercolor{block body alerted}{fg=dhbwDark, bg=dhbwBg}
+\setbeamercolor{alerted text}{fg=dhbwRedBright}
 
 \endinput

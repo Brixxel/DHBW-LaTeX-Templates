@@ -5,4 +5,81 @@
 \RequirePackage{05-theme/beamerinnerthemeDHBW}
 \RequirePackage{05-theme/beamerouterthemeDHBW}
 
+\endinput\ProvidesPackage{05-theme/beamerouterthemeDHBW}[2025/01/01 DHBW Outer]
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   FORTSCHRITTS-LOGIK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wir nutzen den eingebauten Frame-Counter im Verhältnis zur
+% Gesamtanzahl. \insertframenumber / \inserttotalframenumber
+% liefert genau das, was wir brauchen.
+
+\newlength{\dhbw@progresswidth}
+\setlength{\dhbw@progresswidth}{\dimexpr\paperwidth-2.6cm\relax}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   FRAMETITLE  +  PROGRESS-BAR  +  SECTION-DOTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{frametitle}{%
+  \vspace{0.7em}%
+  \leavevmode%
+  \hspace{0.3em}\usebeamerfont{frametitle}\insertframetitle\par
+  \vspace{-0.1em}%
+  %
+  % --- Progress-Bar ---
+  \hspace{0.3em}%
+  \begin{tikzpicture}
+    \draw[dhbwLight, line width=1.2pt]
+      (0,0) -- (\dhbw@progresswidth,0);
+    \pgfmathsetmacro{\progress}{%
+      \insertframenumber/\inserttotalframenumber}
+    \draw[dhbwRed, line width=1.8pt]
+      (0,0) -- (\progress*\dhbw@progresswidth,0);
+  \end{tikzpicture}\par
+  %
+  % --- Section-Dots (nur wenn Sections existieren) ---
+  \ifnum\inserttotalsection>0\relax
+    \vspace{0.3em}%
+    \hspace{0.3em}%
+    \begin{tikzpicture}[baseline=0pt]
+      \foreach \i in {1,...,\inserttotalsection} {
+        \ifnum\i=\insertsectionnumber
+          \fill[dhbwRed]  (\i*0.35,0) circle (2.2pt);
+        \else
+          \ifnum\i<\insertsectionnumber
+            \fill[dhbwMid] (\i*0.35,0) circle (2pt);
+          \else
+            \draw[dhbwLight, line width=0.6pt]
+                  (\i*0.35,0) circle (2pt);
+          \fi
+        \fi
+      }
+    \end{tikzpicture}%
+  \fi
+  \vspace{0.6em}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   FOOTLINE  (unverändert, dezent)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.33\paperwidth, ht=2.5ex, dp=1ex, leftskip=0.8cm]{footline}%
+      \usebeamerfont{footline}\insertshortauthor%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.34\paperwidth, ht=2.5ex, dp=1ex, center]{footline}%
+      \usebeamerfont{footline}\insertshorttitle%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.33\paperwidth, ht=2.5ex, dp=1ex, rightskip=0.8cm]{footline}%
+      \usebeamerfont{footline}\hfill\insertframenumber\,/\,\inserttotalframenumber%
+    \end{beamercolorbox}%
+  }\vspace{3pt}%
+}
+
+\setbeamertemplate{navigation symbols}{}
+
 \endinput

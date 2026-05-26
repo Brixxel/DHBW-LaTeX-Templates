@@ -1,0 +1,14 @@
+\frametitle{Code-Snippets}
+\begin{lstlisting}
+def cosine_similarity(a, b):
+    """Compute cosine similarity between two vectors."""
+    return (a @ b) / (norm(a) * norm(b))
+
+# Beispielaufruf
+score = cosine_similarity(emb_query, emb_doc)
+\end{lstlisting}
+
+  \begin{itemize}
+    \item Syntax-Highlighting via \texttt{listings}
+    \item Frame muss \texttt{[fragile]} sein
+  \end{itemize}

@@ -6,6 +6,9 @@
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{etoolbox}
+
+\usepackage{pdfpc}
 
 %%%%% GRAFIK-PFADE %%%%%
 \graphicspath{{60-figures/}{60-figures/01-logo/}}
@@ -20,4 +23,22 @@
 }
 
 %%%%% NAVIGATION DEAKTIVIEREN %%%%%
-\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{navigation symbols}{}
+
+%%%%% CODE-STYLING %%%%%
+\usepackage{listings}
+\lstdefinestyle{dhbwstyle}{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{dhbwRed}\bfseries,
+  commentstyle=\color{dhbwMid}\itshape,
+  stringstyle=\color{dhbwDark},
+  numberstyle=\tiny\color{dhbwLight},
+  backgroundcolor=\color{dhbwBg},
+  frame=single,
+  rulecolor=\color{dhbwLight},
+  numbers=left, numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  language=Python
+}
+\lstset{style=dhbwstyle}

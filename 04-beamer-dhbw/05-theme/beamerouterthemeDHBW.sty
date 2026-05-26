@@ -1,31 +1,83 @@
-\ProvidesPackage{05-theme/beamerouterthemeDHBW}[2025/01/01 DHBW Outer Theme]
+\ProvidesPackage{05-theme/beamerouterthemeDHBW}[2025/01/01 DHBW Outer]
 \RequirePackage{tikz}
+\usetikzlibrary{calc}
 
-%%%%% FRAMETITLE %%%%%
-\setbeamertemplate{frametitle}{%
-  \vspace{0.6em}\hspace{0.4em}%
-  \usebeamerfont{frametitle}\insertframetitle\par
-  \vspace{-0.3em}%
-  {\color{dhbwRed}\rule{\dimexpr\paperwidth-2cm\relax}{1.5pt}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   HEADLINE  — Section-Navigation mit Mini-Frames
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Farbe der Mini-Frame-Dots
+\setbeamercolor{section in head/foot}{fg=dhbwMid, bg=white}
+\setbeamercolor{subsection in head/foot}{fg=dhbwRed, bg=white}
+\setbeamercolor{mini frame}{fg=dhbwRed, bg=dhbwLight}
+
+% Schrift in der Headline
+\setbeamerfont{section in head/foot}{size=\small}
+\setbeamerfont{subsection in head/foot}{size=\scriptsize}
+
+% Aktive Section: rot & fett. Inaktive: grau.
+\setbeamertemplate{section in head/foot}{%
+  \color{dhbwMid}\insertsectionhead%
+}
+\setbeamertemplate{section in head/foot shaded}{%
+  \color{dhbwLight}\insertsectionhead%
 }
 
-%%%%% FOOTLINE %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   HEADLINE — kompakt, Logo & Sections auf einer Linie
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=0.95cm, dp=0pt]{}%
+    \vbox to 0.95cm{%
+      \vfill
+      \hbox{%
+        % Logo links, vertikal mittig
+        \hspace{0.6cm}%
+        \raisebox{-0.36cm}[0pt][0pt]{%
+          \includegraphics[height=0.85cm]{dhbw_clean.png}%
+        }%
+        \hspace{0.6cm}%
+        % Section-Navigation auf gleicher Höhe
+        \begin{minipage}[c]{\dimexpr\paperwidth-3.2cm\relax}
+          \insertnavigation{\linewidth}
+        \end{minipage}%
+      }%
+      \vfill
+    }%
+  \end{beamercolorbox}%
+  % Trennlinie unter der Headline
+  {\color{dhbwRed}\hrule height 1pt}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   FRAMETITLE  — schlicht, ohne eigene Progress-Bar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{frametitle}{%
+  \vspace{0.2em}%
+  \leavevmode%
+  \hspace{0.3em}\usebeamerfont{frametitle}\insertframetitle\par
+  \vspace{0.2em}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   FOOTLINE — kleiner, dezenter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=0.35\paperwidth, ht=2.5ex, dp=1ex, leftskip=0.8cm]{footline}%
+    \begin{beamercolorbox}[wd=0.33\paperwidth, ht=2ex, dp=0.8ex, leftskip=0.8cm]{footline}%
       \usebeamerfont{footline}\insertshortauthor%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=0.45\paperwidth, ht=2.5ex, dp=1ex, center]{footline}%
+    \begin{beamercolorbox}[wd=0.34\paperwidth, ht=2ex, dp=0.8ex, center]{footline}%
       \usebeamerfont{footline}\insertshorttitle%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=0.2\paperwidth, ht=2.5ex, dp=1ex, rightskip=0.8cm]{footline}%
+    \begin{beamercolorbox}[wd=0.33\paperwidth, ht=2ex, dp=0.8ex, rightskip=0.8cm]{footline}%
       \usebeamerfont{footline}\hfill\insertframenumber\,/\,\inserttotalframenumber%
     \end{beamercolorbox}%
   }\vspace{2pt}%
 }
 
-%%%%% NAVIGATION AUS %%%%%
 \setbeamertemplate{navigation symbols}{}
 
 \endinput

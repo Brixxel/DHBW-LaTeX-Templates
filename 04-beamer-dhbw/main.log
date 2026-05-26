@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.10)  9 MAY 2026 16:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.10)  26 MAY 2026 16:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -127,8 +127,8 @@ Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 \pgfmath@stack@operation=\toks25
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count296
-))) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
@@ -637,6 +637,26 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count365
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfpc/pdfpc.sty
+Package: pdfpc 2023/10/21 v0.7.1 PDFPC
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex
+\xs_counta=\count366
+\xs_countb=\count367
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperxmp/hyperxmp.sty
+Package: hyperxmp 2024/03/17 v5.13 Store hyperref metadata in XMP format
+\hyxmp@aep@toks=\toks49
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\@hyxmp@count=\count368
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/ifdraft.sty
+Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ))) (./05-theme/beamerthemeDHBW.sty
 Package: 05-theme/beamerthemeDHBW 2025/01/01 DHBW Beamer Theme
  (./05-theme/beamercolorthemeDHBW.sty
@@ -644,22 +664,55 @@ Package: 05-theme/beamercolorthemeDHBW 2025/01/01 DHBW Colors
 ) (./05-theme/beamerfontthemeDHBW.sty
 Package: 05-theme/beamerfontthemeDHBW 2025/01/01 DHBW Fonts
  (/usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerfontthemeprofessionalfonts.sty)) (./05-theme/beamerinnerthemeDHBW.sty
-Package: 05-theme/beamerinnerthemeDHBW 2025/01/01 DHBW Inner Theme
+Package: 05-theme/beamerinnerthemeDHBW 2025/01/01 DHBW Inner
 ) (./05-theme/beamerouterthemeDHBW.sty
-Package: 05-theme/beamerouterthemeDHBW 2025/01/01 DHBW Outer Theme
+Package: 05-theme/beamerouterthemeDHBW 2025/01/01 DHBW Outer
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 20.
-) (./00-meta_config/commands.tex) (./00-meta_config/metadata.tex)
+
+LaTeX Warning: You have requested package `05-theme/beamerthemeDHBW',
+               but the package provides `05-theme/beamerouterthemeDHBW'.
+
+Package: 05-theme/beamerouterthemeDHBW 2025/01/01 DHBW Outer
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 23.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count369
+\lst@gtempboxa=\box82
+\lst@token=\toks50
+\lst@length=\count370
+\lst@currlwidth=\dimen322
+\lst@column=\count371
+\lst@pos=\count372
+\lst@lostspace=\dimen323
+\lst@width=\dimen324
+\lst@newlines=\count373
+\lst@lineno=\count374
+\lst@maxwidth=\dimen325
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count375
+\lst@skipnumbers=\count376
+\lst@framebox=\box83
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)) (./00-meta_config/commands.tex) (./00-meta_config/metadata.tex)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count366
-\l__pdf_internal_box=\box82
-)
-No file main.aux.
+\l__color_backend_stack_int=\count377
+\l__pdf_internal_box=\box84
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -680,6 +733,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -688,23 +742,23 @@ LaTeX Font Info:    ... okay on input line 17.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(28.45274pt, 398.3386pt, 28.45274pt)
-* v-part:(T,H,B)=(0.0pt, 256.0748pt, 0.0pt)
-* \paperwidth=455.24408pt
-* \paperheight=256.0748pt
-* \textwidth=398.3386pt
-* \textheight=227.62207pt
+* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=307.28987pt
+* \textheight=244.6939pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
 * \topmargin=-72.26999pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=14.22636pt
-* \marginparwidth=4.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=3.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -716,17 +770,17 @@ LaTeX Font Info:    ... okay on input line 17.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count367
-\scratchdimen=\dimen322
-\scratchbox=\box83
-\nofMPsegments=\count368
-\nofMParguments=\count369
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count370
-\MPscratchDim=\dimen323
-\MPnumerator=\count371
-\makeMPintoPDFobject=\count372
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count378
+\scratchdimen=\dimen326
+\scratchbox=\box85
+\nofMPsegments=\count379
+\nofMParguments=\count380
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count381
+\MPscratchDim=\dimen327
+\MPnumerator=\count382
+\makeMPintoPDFobject=\count383
+\everyMPtoPDFconversion=\toks52
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -734,6 +788,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 17.
+ (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -761,358 +816,258 @@ Dictionary: translator-numbers-dictionary, Language: German
 Dictionary: translator-theorem-dictionary, Language: English 
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-German.dict
 Dictionary: translator-theorem-dictionary, Language: German 
-) (./main.nav) (./10-frontmatter/titlepage.tex
-<60-figures/01-logo/dhbw.jpg, id=13, 133.6995pt x 68.1747pt>
+)
+\c@lstlisting=\count384
+ (./main.nav)
+<60-figures/01-logo/dhbw_clean.png, id=21, 593.21625pt x 264.99pt>
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 17.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (./10-frontmatter/titlepage.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 3.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+<60-figures/01-logo/dhbw.jpg, id=54, 133.6995pt x 68.1747pt>
 File: 60-figures/01-logo/dhbw.jpg Graphic file (type jpg)
 <use 60-figures/01-logo/dhbw.jpg>
 Package pdftex.def Info: 60-figures/01-logo/dhbw.jpg  used on input line 3.
-(pdftex.def)             Requested size: 61.3801pt x 31.2982pt.
+(pdftex.def)             Requested size: 66.96178pt x 34.14322pt.
+LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 3.
+LaTeX Font Info:    No file OMScmss.fd. on input line 3.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbar' on input line 3.
+
 
 
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./60-figures/01-logo/dhbw.jpg>]) (./10-frontmatter/agenda.tex
-No file main.toc.
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 3.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+ (./main.toc)
 
-
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 3.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
 [2
 
-]) (./20-slides/01-introduction/01-00-section.tex
+ <./60-figures/01-logo/dhbw_clean.png>]) (./20-slides/01-introduction/01-00-section.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 1.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <120> not available
+(Font)              size <51.59> substituted on input line 1.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <120> not available
+(Font)              size <51.59> substituted on input line 1.
+
+
 
 [3
 
 ] (./20-slides/01-introduction/01-01-motivation.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 17.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
 
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 17.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
 [4
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]) (./20-slides/01-introduction/01-02-goals.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 7.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
 
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 7.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
 [5
 
-])) (./20-slides/02-main-part/02-00-section.tex) (./20-slides/03-conclusion/03-00-section.tex) (./30-backmatter/thankyou.tex
-
-./30-backmatter/thankyou.tex:8: LaTeX Error: Not allowed in LR mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8 \end{frame}
-               
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./30-backmatter/thankyou.tex:8: Missing } inserted.
-<inserted text> 
-                }
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-./30-backmatter/thankyou.tex:8: Package tikz Error: Giving up on this path. Did you forget a semicolon?.
-
-See the tikz package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8 \end{frame}
-               
-This error message was generated by an \errmessage
-command, so I can't give any explicit help.
-Pretend that you're Hercule Poirot: Examine all clues,
-and deduce the truth by order and method.
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Undefined control sequence.
-<recently read> \tikz@expand@last@token@ 
-                                         
-l.8 \end{frame}
-               
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./30-backmatter/thankyou.tex:8: Missing number, treated as zero.
-<to be read again> 
-                   \let 
-l.8 \end{frame}
-               
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./30-backmatter/thankyou.tex:8: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \let 
-l.8 \end{frame}
-               
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing } inserted.
-<inserted text> 
-                }
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Missing } inserted.
-<inserted text> 
-                }
-l.8 \end{frame}
-               
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./30-backmatter/thankyou.tex:8: Extra }, or forgotten \endgroup.
-\beamer@doifinframe ...amerfont {subtitle}Fragen?}
-                                                  ; \end {tikzpicture} \end ...
-l.8 \end{frame}
-               
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./30-backmatter/thankyou.tex:8: Undefined control sequence.
-\endtikzpicture ...r@layerlist@globally \endscope 
-                                                  \let \pgf@baseline =\pgf@s...
-l.8 \end{frame}
-               
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./30-backmatter/thankyou.tex:8: Extra }, or forgotten \endgroup.
-\endpgfpicture ...globally \endgroup \hss \egroup 
-                                                  \pgf@restore@layerlist@fro...
-l.8 \end{frame}
-               
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./30-backmatter/thankyou.tex:8: Infinite glue shrinkage found in a paragraph.
-\endpgfpicture ...dpicture \endgroup \hss \egroup 
-                                                  \pgfsys@typesetpicturebox ...
-l.8 \end{frame}
-               
-The paragraph just ended includes some glue that has
-infinite shrinkability, e.g., `\hskip 0pt minus 1fil'.
-Such glue doesn't belong there---it allows a paragraph
-of any length to fit on one line. But it's safe to proceed,
-since the offensive shrinkability has been made finite.
-
-./30-backmatter/thankyou.tex:8: Extra \endgroup.
-\endtikzpicture ...lobal \endpgfpicture \endgroup 
-                                                  
-l.8 \end{frame}
-               
-Things are pretty mixed up, but I think the worst is over.
-
-
-./30-backmatter/thankyou.tex:8: LaTeX Error: \begin{document} ended by \end{tikzpicture}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8 \end{frame}
-               
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./30-backmatter/thankyou.tex:8: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.8 \end{frame}
-               
-Things are pretty mixed up, but I think the worst is over.
-
-
-./30-backmatter/thankyou.tex:8: LaTeX Error: \begin{document} ended by \end{beamer@framepauses}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8 \end{frame}
-               
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./30-backmatter/thankyou.tex:8: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.8 \end{frame}
-               
-Things are pretty mixed up, but I think the worst is over.
-
-./30-backmatter/thankyou.tex:8: Too many }'s.
-\endbeamer@frameslide ...amer@framepauses}\egroup 
-                                                  \ifx \beamer@frametitle \@...
-l.8 \end{frame}
-               
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-./30-backmatter/thankyou.tex:8: Undefined control sequence.
-\endbeamer@frameslide ...box \else \beamer@zoomer 
-                                                  \fi \beamer@undolabels \be...
-l.8 \end{frame}
-               
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-./30-backmatter/thankyou.tex:8: LaTeX Error: \begin{document} ended by \end{beamer@frameslide}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8 \end{frame}
-               
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./30-backmatter/thankyou.tex:8: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.8 \end{frame}
-               
-Things are pretty mixed up, but I think the worst is over.
-
+])) (./20-slides/02-main-part/02-00-section.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 1.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
 
 
 [6
+
+] (./20-slides/02-main-part/02-01-text-listen.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 24.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 24.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+[7
+
+]) (./20-slides/02-main-part/02-02-spalten.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 20.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 20.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+[8
+
+]) (./20-slides/02-main-part/02-03-bloecke.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 13.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 13.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+[9
+
+]) (./20-slides/02-main-part/02-04-tabellen.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 17.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 17.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+[10
+
+]) (./20-slides/02-main-part/02-05-mathematik.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 27.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 27.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 27.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+[11
+
+]) (./20-slides/02-main-part/02-06-grafiken.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 18.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 18.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 18.
+
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbackslash' on input line 18.
+
+File: 60-figures/01-logo/dhbw.jpg Graphic file (type jpg)
+<use 60-figures/01-logo/dhbw.jpg>
+Package pdftex.def Info: 60-figures/01-logo/dhbw.jpg  used on input line 18.
+(pdftex.def)             Requested size: 122.91406pt x 62.67673pt.
+
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 18.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+[12
+
+]) (./20-slides/02-main-part/02-07-tikz.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 23.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 23.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+[13
+
+]) (./20-slides/02-main-part/02-08-code.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 1.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+\openout4 = `main.vrb'.
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 15.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+ (./main.vrb
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
+)
+
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 15.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+[14
+
+]) (./20-slides/02-main-part/02-09-zitat.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 1.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+
+
+[15
+
+])) (./20-slides/03-conclusion/03-00-section.tex) (./30-backmatter/thankyou.tex
+File: 60-figures/01-logo/dhbw_clean.png Graphic file (type png)
+<use 60-figures/01-logo/dhbw_clean.png>
+Package pdftex.def Info: 60-figures/01-logo/dhbw_clean.png  used on input line 16.
+(pdftex.def)             Requested size: 54.13844pt x 24.18501pt.
+
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/se-utf8.def
+File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
+) [16
 
 ])
 \tf@nav=\write6
@@ -1131,30 +1086,28 @@ L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 68.41pt have occurred.
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  C9B865AFC2015293BE6A015B6C3FB029;96.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: A78F7CC8738749E48AC6ACFEBD0192D3;219.
  ) 
 Here is how much of TeX's memory you used:
- 26736 strings out of 473190
- 530804 string characters out of 5715800
- 903356 words of memory out of 5000000
- 49418 multiletter control sequences out of 15000+600000
- 562951 words of font info for 50 fonts, out of 8000000 for 9000
+ 30054 strings out of 473190
+ 584928 string characters out of 5715800
+ 1206599 words of memory out of 5000000
+ 52600 multiletter control sequences out of 15000+600000
+ 569387 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,467b,759s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on main.pdf (6 pages, 170494 bytes).
+ 128i,24n,123p,929b,1359s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb>
+Output written on main.pdf (16 pages, 359853 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 707 PDF objects out of 1000 (max. 8388607)
+ 341 compressed objects within 4 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
