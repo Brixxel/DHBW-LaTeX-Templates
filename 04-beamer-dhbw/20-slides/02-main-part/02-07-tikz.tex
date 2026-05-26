@@ -1,0 +1,23 @@
+\begin{frame}{TikZ – Diagramme nativ in LaTeX}
+  \centering
+  \begin{tikzpicture}[
+      every node/.style={inner sep=4pt},
+      box/.style={draw=dhbwLight, fill=dhbwBg, rounded corners=2pt,
+                  minimum width=2.2cm, minimum height=0.9cm, font=\small},
+      accent/.style={draw=dhbwRed, fill=white, rounded corners=2pt,
+                     minimum width=2.2cm, minimum height=0.9cm, font=\small\bfseries},
+      arrow/.style={->, draw=dhbwMid, thick}
+    ]
+    \node[box]    (input)  at (0, 0) {Input};
+    \node[box]    (token)  at (2.4, 0) {Tokenize};
+    \node[accent] (model)  at (4.8, 0) {Modell};
+    \node[box]    (output) at (7.2, 0) {Output};
+
+    \draw[arrow] (input)  -- (token);
+    \draw[arrow] (token)  -- (model);
+    \draw[arrow] (model)  -- (output);
+  \end{tikzpicture}
+
+  \vspace{0.8em}
+  TikZ-Grafiken sind \highlight{vektoriell}, skalierbar und versionierbar.
+\end{frame}

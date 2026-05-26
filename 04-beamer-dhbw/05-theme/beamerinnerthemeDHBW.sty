@@ -1,0 +1,55 @@
+\ProvidesPackage{05-theme/beamerinnerthemeDHBW}[2025/01/01 DHBW Inner]
+\RequirePackage{tikz}
+
+%%%%% TITELFOLIE — minimalistisch, weiß, dezent %%%%%
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    % Schmaler roter Akzentbalken links
+    \fill[dhbwRed] (current page.south west) rectangle
+                   ([xshift=0.35cm]current page.north west);
+
+    % Logo oben rechts
+    \node[anchor=north east]
+      at ([xshift=-1cm, yshift=-0.8cm]current page.north east)
+      {\includegraphics[height=1.2cm]{dhbw.jpg}};
+
+    % Titelblock vertikal mittig
+    \node[anchor=west, text width=0.78\paperwidth]
+      at ([xshift=1.5cm, yshift=0.5cm]current page.west)
+      {%
+        {\usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle}\\[0.4em]
+        {\usebeamercolor[fg]{subtitle}\usebeamerfont{subtitle}\insertsubtitle}\\[2em]
+        {\color{dhbwLight}\rule{6cm}{0.6pt}}\\[0.6em]
+        {\usebeamercolor[fg]{author}\usebeamerfont{author}\insertauthor}\\[0.2em]
+        {\usebeamercolor[fg]{date}\usebeamerfont{date}\insertinstitute\ \textbar\ \insertdate}%
+      };
+  \end{tikzpicture}%
+}
+
+%%%%% ABSCHNITTSTRENNER — weiß, große graue Nummer %%%%%
+\AtBeginSection[]{%
+  \begin{frame}[plain, noframenumbering]
+    \begin{tikzpicture}[remember picture, overlay]
+      % Großer Section-Counter im Hintergrund
+      \node[anchor=north west, text=dhbwBg]
+        at ([xshift=0.8cm, yshift=-0.5cm]current page.north west)
+        {\fontsize{120}{120}\selectfont\bfseries 0\thesection};
+
+      % Section-Titel
+      \node[anchor=west, text width=0.75\paperwidth]
+        at ([xshift=1.5cm]current page.west)
+        {%
+          {\color{dhbwRed}\rule{1cm}{2pt}}\\[0.6em]
+          {\color{dhbwDark}\Huge\bfseries\insertsectionhead}\\[0.4em]
+          {\color{dhbwMid}\large Abschnitt \thesection}%
+        };
+    \end{tikzpicture}%
+  \end{frame}%
+}
+
+%%%%% LISTEN %%%%%
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{\textendash}
+\setbeamertemplate{itemize subsubitem}{\textperiodcentered}
+
+\endinput

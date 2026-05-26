@@ -1,0 +1,16 @@
+\begin{frame}[plain, noframenumbering]
+  \begin{tikzpicture}[remember picture, overlay]
+    % Linker roter Akzentbalken (wie Titelfolie - konsistent)
+    \fill[dhbwRed] (current page.south west) rectangle
+                   ([xshift=0.35cm]current page.north west);
+
+    \node[anchor=west, text width=0.8\paperwidth]
+      at ([xshift=1.5cm]current page.west)
+      {%
+        {\color{dhbwRed}\rule{1cm}{2pt}}\\[0.5em]
+        {\color{dhbwDark}\Huge\bfseries Vielen Dank!}\\[0.4em]
+        {\color{dhbwMid}\large Fragen, Anmerkungen, Diskussion}\\[1.5em]
+        {\color{dhbwMid}\small\insertauthor\ \textbar\ \insertinstitute}%
+      };
+  \end{tikzpicture}%
+\end{frame}
