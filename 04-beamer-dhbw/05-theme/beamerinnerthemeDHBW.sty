@@ -15,7 +15,7 @@
 
     % Titelblock vertikal mittig
     \node[anchor=west, text width=0.78\paperwidth]
-      at ([xshift=1.5cm, yshift=0.5cm]current page.west)
+      at ([xshift=1.5cm, yshift=-0.5cm]current page.west)
       {%
         {\usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle}\\[0.4em]
         {\usebeamercolor[fg]{subtitle}\usebeamerfont{subtitle}\insertsubtitle}\\[2em]
@@ -31,17 +31,17 @@
   \begin{frame}[plain, noframenumbering]
     \begin{tikzpicture}[remember picture, overlay]
       % Großer Section-Counter im Hintergrund
-      \node[anchor=north west, text=dhbwBg]
-        at ([xshift=0.8cm, yshift=-0.5cm]current page.north west)
-        {\fontsize{120}{120}\selectfont\bfseries 0\thesection};
+      \node[anchor=north west, text=dhbwLight, opacity=0.2, scale=8]
+        at ([xshift=0.0cm, yshift=0.0cm]current page.north west)
+        {\bfseries 0\thesection};
 
       % Section-Titel
       \node[anchor=west, text width=0.75\paperwidth]
-        at ([xshift=1.5cm]current page.west)
+        at ([xshift=1.5cm, yshift=-1.0cm]current page.west)
         {%
           {\color{dhbwRed}\rule{1cm}{2pt}}\\[0.6em]
           {\color{dhbwDark}\Huge\bfseries\insertsectionhead}\\[0.4em]
-          {\color{dhbwMid}\large Abschnitt \thesection}%
+          {\color{dhbwMid}\large\sectionsubtitle}%
         };
     \end{tikzpicture}%
   \end{frame}%
