@@ -1,0 +1,155 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Konfigurations Datei (Cambridge Style V2.2 - Tuned)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+
+% --- LAYOUT ---
+\usepackage[margin=1.4cm, top=1.4cm, bottom=1.5cm, columnsep=0.6cm]{geometry}
+
+% --- SCHRIFTARTEN ---
+\usepackage{mathpazo}            % Palatino (Serif)
+\usepackage[scaled=0.92]{helvet} % Helvetica (Sans)
+\usepackage{courier}
+
+% --- PAKETE ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[square, numbers, sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{float}       % <-- NEU: für [H] Platzierung
+\usepackage{wrapfig}     % <-- NEU: Text umfließt Grafiken
+\usepackage{enumitem}    % <-- NEU: für kompakte Listen
+\usepackage{caption}     % <-- NEU: Caption-Kontrolle
+
+
+
+% Farbe für die Matrikelnummern
+\definecolor{matrcolor}{gray}{0.4}
+
+% Header/Footer
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\cfoot{\sffamily\tiny \thepage} 
+
+% --- ÜBERSCHRIFTEN ---
+\usepackage{titlesec}
+\titleformat{\section}{\sffamily\bfseries\large}{}{0em}{}
+\titleformat{\subsection}{\sffamily\bfseries\normalsize\itshape}{}{0em}{}
+\titleformat{\paragraph}[runin]{\sffamily\bfseries}{}{0em}{}[.]
+
+% SPACING: {links}{davor}{danach}
+\titlespacing*{\section}{0pt}{0.6ex}{0pt}
+\titlespacing*{\subsection}{0pt}{0.4ex}{0pt}
+\titlespacing*{\paragraph}{0pt}{0.3ex}{0.3em}
+
+% --- DATA VARIABLES ---
+\def\gMyTitle{}
+\def\gHeaderLeft{}
+\def\gHeaderRightLogo{}
+\def\gArticleType{}
+\def\gAuthorsText{}
+\def\gAffiliation{}
+\def\gCorrespondence{}
+\def\gMyAbstract{}
+
+\newcommand{\myTitle}[1]{\def\gMyTitle{#1}}
+\newcommand{\headerLeft}[1]{\def\gHeaderLeft{#1}}
+\newcommand{\headerRightLogo}[1]{\def\gHeaderRightLogo{#1}}
+\newcommand{\articleType}[1]{\def\gArticleType{#1}}
+\newcommand{\authorsText}[1]{\def\gAuthorsText{#1}}
+\newcommand{\affiliation}[1]{\def\gAffiliation{#1}}
+\newcommand{\correspondence}[1]{\def\gCorrespondence{#1}}
+\newcommand{\myAbstract}[1]{\def\gMyAbstract{#1}}
+
+\newcommand{\matr}[1]{\textcolor{matrcolor}{\footnotesize\textsf{(#1)}}}
+
+% --- FLOAT-EINSTELLUNGEN --- (NEU)
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}      % Abstand über/unter Floats
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}       % Abstand zwischen Floats
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}   % Abstand Float zu Text
+\setlength{\abovecaptionskip}{4pt}                  % Abstand Bild zu Caption
+\setlength{\belowcaptionskip}{2pt}                  % Abstand Caption zu Text
+
+% Weniger Float-Einschränkungen
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+
+
+% --- SAFETY BOX ---
+\newsavebox{\headerContentBox}
+
+% === MAKECOVER (Tuned Version) ===
+\newcommand{\makecover}{%
+    % 1. Header berechnen
+    \savebox{\headerContentBox}{%
+        % [c] für center alignment (vertikal mittig)
+        \begin{minipage}[c]{0.6\textwidth}
+            \sffamily\footnotesize \textbf{\gHeaderLeft}
+        \end{minipage}%
+        \hfill
+        % [c] für center alignment
+        \begin{minipage}[c]{0.35\textwidth}
+            \raggedleft
+            % Logo vergrößert auf 1.3cm
+            \includegraphics[height=1.3cm]{\gHeaderRightLogo} 
+        \end{minipage}
+    }%
+    % 2. Layout starten
+    \twocolumn[%
+    \begin{@twocolumnfalse}
+        \sffamily 
+        \raggedright 
+
+        \noindent\usebox{\headerContentBox}
+        \par\vspace{0.8em}
+
+        % Article Type
+        {\bfseries\footnotesize\MakeUppercase{\gArticleType}}
+        \par\vspace{0.1em}
+
+        % Titel mit reduziertem Zeilenabstand
+        {%
+            \LARGE\bfseries
+            \setlength{\baselineskip}{1.1em}  
+            \gMyTitle \par
+        }
+        \vspace{0.5em}  
+
+        % Autoren
+        {\large \gAuthorsText \par}
+        \vspace{0.5em}
+
+        % Affiliation
+        {\footnotesize \gAffiliation \par}
+        \vspace{0.2em}
+
+        % Korrespondenz
+        {\footnotesize \textbf{Author for correspondence:} \gCorrespondence \par}
+        
+        \vspace{1.25em}
+        
+        % Abstract
+        \ifx\gMyAbstract\empty
+        \else
+            \begin{quote}
+            \normalfont 
+            \small
+            \textbf{\sffamily Abstract.} \gMyAbstract
+            \end{quote}
+            \vspace{1em}
+        \fi
+        
+    \end{@twocolumnfalse}
+    ]
+}

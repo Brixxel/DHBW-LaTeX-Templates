@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Paper Proposal - Cambridge Sketch Style V2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt, twocolumn]{scrartcl} 
+
+\input{00-meta/config}
+
+% --- HEADER ---
+\headerLeft{final paper  (2026), 1--X}
+% Logo
+\headerRightLogo{60-figures/01-logo/dhbw.jpg} 
+
+% --- META ---
+\articleType{Final paper}
+\myTitle{Titel of the Paper}
+
+% --- AUTOREN MIT MATRIKELNUMMERN ---
+\authorsText{
+    Felix Regler \matr{1234567},$^{1}$ 
+    Second Author \matr{1234567},$^{1}$
+    Third Author \matr{7654321},$^{1}$
+}
+\affiliation{
+    $^1$DHBW Mannheim, Coblitzallee 1-9, 68163 Mannheim, Germany
+}
+
+\correspondence{
+     Felix Regler, Email: example@student.dhbw-mannheim.de
+     }
+\begin{document}
+
+\makecover 
+
+\input{10-frontmatter/01-abstract}
+
+\input{20-chapters/chapter-01/10-00-chapter-1}
+\input{20-chapters/chapter-02/20-00-chapter-2}
+
+
+\scriptsize 
+\bibliographystyle{unsrtnat}
+\bibliography{60-backmatter/bibliography} 
+
+\end{document}
