@@ -1,0 +1,23 @@
+% !TEX root =  master.tex
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+%%%%% allgemeine Informationen über die Arbeit %%%%%
+
+\begin{minipage}{\textwidth}
+    \renewcommand{\arraystretch}{1.5} % Für den vertikalen Abstand (wie vorher)
+    
+	\begin{tabularx}{\textwidth}{@{} l @{\hspace{1.5cm}} X } 
+	Author: & \DerAutorDerArbeit \\
+	Student ID: & \DieMatrikelnummer \\
+	Course: & \DieKursbezeichnung \\
+	Title: & \DerTitelDerArbeit \\ % Langer Text wird hier automatisch umgebrochen
+	\end{tabularx}
+\end{minipage}
+
+\vspace{2cm}
+%%%%%% Eingtlicher abstract %%%%%%
+
+\acl{RAG} systems in highly regulated domains such as German tax law depend on the quality of their embedding-based retrieval stage, yet standard commercial embedding models suffer from a well-documented domain gap when applied to specialised legal text. 
+The lexical density, morphological complexity and fine-grained semantic distinctions of German tax law induce geometric pathologies in general-purpose embedding spaces ...

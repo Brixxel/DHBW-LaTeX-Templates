@@ -1,0 +1,118 @@
+\chapter*{List of Notations}
+\addcontentsline{toc}{chapter}{List of Notations}
+
+The following notation is used consistently throughout this thesis.
+
+\vspace{1em}
+
+\begin{xltabular}{\textwidth}{l X}
+    \toprule
+    \textbf{Symbol} & \textbf{Description} \\
+    \toprule
+    \endfirsthead
+    
+    \toprule
+    \textbf{Symbol} & \textbf{Description} \\ 
+    \midrule
+    \endhead
+    
+    \bottomrule
+    \endlastfoot
+
+    % ============================================================
+    \multicolumn{2}{l}{\textbf{Corpora and Vocabularies}} \\
+    \midrule
+    
+    $\mathcal{X}$            & Input space of discrete linguistic objects \\
+    $\mathcal{C}$            & A text corpus ($\mathcal{C} \subset \mathcal{X}$) \\
+    $\mathcal{C}_{\text{neo}}$ & The \ac{NEO} tax law corpus \\
+    $\mathcal{C}_{\text{ref}}$ & A general-domain reference corpus e.g., Wikipedia \\
+    $N$                      & Total number of chunks in a corpus \\
+    $\mathcal{V}$            & Vocabulary  \\
+    $\mathcal{V}_{\mathcal{C}}$ & Vocabulary of corpus $\mathcal{C}$ \\
+    $w$                      & A word or sub-word token ($w \in \mathcal{V}$) \\
+    $f_{\mathcal{C}}(w)$     & Frequency of token $w$ in corpus $\mathcal{C}$ \\[6pt]
+    
+    % ============================================================
+    \midrule
+    \multicolumn{2}{l}{\textbf{Linguistic and Morphological Properties}} \\
+    \midrule
+    
+    $L(w)$                   & Character length of token $w$ \\
+    $\bar{L}(\mathcal{V})$   & Mean content-word length over vocabulary $\mathcal{V}$ \\
+    $\tau$                   & Tokeniser function ($\tau \colon \mathcal{X} \to \mathcal{V}^*$) \\
+    $F(w)$                   & Token fertility: sub-word tokens produced for $w$ ($F(w) = |\tau(w)|$) \\
+    $\bar{F}(\mathcal{V})$   & Mean token fertility over vocabulary $\mathcal{V}$ \\[6pt]
+
+    % ============================================================
+    \midrule
+    \multicolumn{2}{l}{\textbf{Embeddings and Retrieval Architecture}} \\
+    \midrule
+    
+    \multicolumn{2}{l}{\quad\textit{Representation space}} \\[2pt]
+    $\mathcal{Z}$            & Representation space ($\mathcal{Z} \subseteq \mathbb{R}^d$) \\
+    $d$                      & Ambient embedding dimensionality (e.g., $d = 3{,}072$) \\
+    $d'$                     & Reduced dimensionality after projection (e.g., $d' = 512$) \\
+    $\mathbf{z}$             & Embedding vector of a text ($\mathbf{z} \in \mathbb{R}^d$) \\
+    $\boldsymbol{\mu}$       & Corpus centroid (mean embedding vector) \\
+    $\boldsymbol{\Sigma}$    & Covariance matrix of a set of embeddings \\
+    $\lambda_i$              & $i$-th eigenvalue of $\boldsymbol{\Sigma}$ \\[4pt]
+    %
+    \multicolumn{2}{l}{\quad\textit{Encoder components}} \\[2pt]
+    $\phi_\theta(\cdot)$     & Parameterised embedding model \\
+    $\Phi(\cdot)$            & Full encoder pipeline ($\Phi \colon \mathcal{X} \to \mathcal{Z}$) \\
+    $\boldsymbol{\Omega}$    & Global embedding matrix for static paradigms ($\boldsymbol{\Omega} \in \mathbb{R}^{d \times |\mathcal{V}|}$) \\
+    $\mathbf{E}$             & Token embedding matrix ($\mathbf{E} \in \mathbb{R}^{d \times n}$) \\
+    $\psi(\cdot)$            & Pooling function, mapping token embeddings to a sequence vector \\
+    $\mathbf{W}$             & PCA projection matrix ($\mathbf{W} \in \mathbb{R}^{d \times d'}$) \\[4pt]
+    %
+    \multicolumn{2}{l}{\quad\textit{Retrieval}} \\[2pt]
+    $q$                      & A user query \\
+    $c$                      & A text chunk from $\mathcal{C}$ \\
+    $k$                      & Retrieval depth \\
+    $\mathcal{Q}$            & Evaluation query set \\
+    $\mathcal{R}_q$          & Ground-truth relevant documents for query $q$ \\
+    $\mathcal{C}_{q,k}$      & Top-$k$ retrieved chunks for query $q$ \\
+    $L_{q,k}$                & Ranked retrieval list: $L_{q,k} = (c^{(1)}, \ldots, c^{(k)})$ \\
+    $\text{rel}_i$           & Graded relevance score at rank $i$ in $L_{q,k}$ \\
+    $\hat{\mathbf{Q}}$       & Query embedding matrix ($\hat{\mathbf{Q}} \in \mathbb{R}^{|\mathcal{Q}| \times d'}$) \\
+    $\hat{\mathbf{C}}$       & Corpus embedding matrix ($\hat{\mathbf{C}} \in \mathbb{R}^{N \times d'}$) \\
+    $\operatorname{sim}(\mathbf{u}, \mathbf{v})$ & Cosine similarity between $\mathbf{u}$ and $\mathbf{v}$ \\[6pt]
+
+    % ============================================================
+    \midrule
+    \multicolumn{2}{l}{\textbf{Geometric Diagnostics and Evaluation Metrics}} \\
+    \midrule
+    
+    \multicolumn{2}{l}{\quad\textit{Intrinsic (geometric) metrics}} \\[2pt]
+    $\bar{s}_{\cos}$                & Mean pairwise cosine similarity (angular concentration) \\
+    $D_\mu$                         & Mean dominance ratio (centroid bias) \\
+    $\text{IsoScore}$               & Eigenvalue uniformity of $\boldsymbol{\Sigma}$ (spatial isotropy) \\
+    $I_{\text{PF}}$                 & Partition function isotropy (directional uniformity) \\
+    $\hat{A}_{\text{centered}}$     & Centered anisotropy (post-mean-subtraction variance distribution) \\
+    $\text{PR}$                     & Participation ratio (effective intrinsic dimensionality) \\
+    $R_\lambda$                     & Eigenvalue ratio $\lambda_1 / \lambda_d$ (spectral condition number) \\
+    $\hat{d}_{\text{MLE}}$          & MLE estimator of local intrinsic dimensionality \\
+    $\mathcal{L}_{\text{uniform}}$  & Uniformity loss on the unit hypersphere \\
+    $S_k$                           & Hubness skewness of the $k$-NN occurrence distribution \\
+    $\Delta_{\text{sep}}$           & Inter-corpus separation gap \\[4pt]
+    %
+    \multicolumn{2}{l}{\quad\textit{Extrinsic (retrieval) metrics}} \\[2pt]
+    $\text{nDCG}@k$                 & Normalised Discounted Cumulative Gain at rank $k$ \\
+    $\text{MRR}$                    & Mean Reciprocal Rank \\
+    $\text{P}@k$                    & Precision at rank $k$ \\[6pt]
+
+    % ============================================================
+    \midrule
+    \multicolumn{2}{l}{\textbf{Statistical and Experimental Notation}} \\
+    \midrule
+    
+    $T$                      & Number of independent repetitions \\
+    $B$                      & Number of bootstrap resamples \\
+    $\alpha_{\text{adj}}$    & Bonferroni-adjusted significance level ($\alpha / m$) \\
+    $y_{i,j}$                & Graded relevance label for query $q_i$, chunk $c_j$ \\
+    $g$                      & Hedge's $g$ (bias-corrected effect size) \\
+    $\kappa$                 & Cohen's kappa (inter-rater agreement) \\
+    $\rho$                   & Spearman's rank correlation coefficient \\
+
+\end{xltabular}

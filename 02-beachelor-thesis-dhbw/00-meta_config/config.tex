@@ -1,0 +1,197 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Konfigurations Datei
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% FIXME: PLEASE COMMENTOUT PACKAGES THAT ARE NOT USED IN YOUR THESIS, TO AVOID UNNECESSARY COMPILE TIME AND POTENTIAL CONFLICTS.
+
+
+\usepackage[utf8]{inputenc}
+
+%%% LANGUAGE SETTINGS %%%
+%
+%\usepackage[ngerman]{babel} 	         % german language
+%\usepackage[german=quotes]{csquotes} 	 % correct quoting using \enquote{}
+\usepackage[english]{babel}             % english language
+\usepackage{csquotes} 	                 % correct quoting using \enquote{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%         Pakete - Importieren        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{graphicx}
+\usepackage{acronym}
+
+\usepackage{changepage}	
+\usepackage[hidelinks=true]{hyperref}
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+
+% für Mathe:
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{eurosym}
+\usepackage{fontawesome5}
+
+
+% Für Schaublder:
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, calc}
+
+\newcommand{\ragmath}[1]{\textcolor{blue!70!black}{#1}}
+
+% Für große Tabelle
+\usepackage{pdflscape} % For landscape environment (better PDF rotation)
+\usepackage{float}     % For [H] placement specifier
+\usepackage{booktabs}  % For \toprule, \midrule, \bottomrule
+\usepackage{caption}   % Improve caption handling
+\usepackage{rotating}
+\usepackage{siunitx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{xltabular}
+
+\usepackage{amsmath, amsfonts, amssymb} % WICHTIG für Mathe-Symbole
+\usepackage{amsthm}                     % WICHTIG für die Definition-Umgebung
+\usepackage[square, numbers, sort&compress]{natbib}
+
+\newtheorem{definition}{Definition}[chapter]
+
+
+\usepackage[most]{tcolorbox}
+\newtcolorbox{metricbox}[1][]{
+  colback=blue!3,
+  colframe=blue!40!black,
+  fonttitle=\bfseries,
+  title={#1},
+  sharp corners,
+  boxrule=0.5pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%         Commands - Definieren       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\indextype}{numeric}
+\newcommand{\abs}{\par\vskip 0.2cm\goodbreak\noindent}
+\newcommand{\nl}{\par\noindent}
+\newcommand{\mcl}[1]{\mathcal{#1}}
+\newcommand{\nowrite}[1]{}
+\newcommand{\NN}{{\mathbb N}}
+\newcommand{\imagedir}{img}
+
+
+\newcommand{\pms}[1]{\,{\scriptsize$\pm$#1}}
+\newcommand{\FILL}{\textcolor{gray}{---}}
+
+%%% Titelinformationen %%%
+
+\newcommand{\TitelDerArbeit}[1]{\def\DerTitelDerArbeit{#1}\hypersetup{pdftitle={#1}}}
+\newcommand{\AutorDerArbeit}[1]{\def\DerAutorDerArbeit{#1}\hypersetup{pdfauthor={#1}}}
+\newcommand{\Firma}[1]{\def\DerNameDerFirma{#1}}
+\newcommand{\Kurs}[1]{\def\DieKursbezeichnung{#1}}
+\newcommand{\Abteilung}[1]{\def\DerNameDerAbteilung{#1}}
+\newcommand{\Studiengangsleiter}[1]{\def\DerStudiengangsleiter{#1}}
+\newcommand{\WissBetreuer}[1]{\def\DerWissBetreuer{#1}}
+\newcommand{\FirmenBetreuer}[1]{\def\DerFirmenBetreuer{#1}}
+\newcommand{\Bearbeitungszeitraum}[1]{\def\DerBearbeitungszeitraum{#1}}
+\newcommand{\Abgabedatum}[1]{\def\DasAbgabedatum{#1}}
+\newcommand{\Matrikelnummer}[1]{\def\DieMatrikelnummer{#1}}
+\newcommand{\Studienrichtung}[1]{\def\DieStudienrichtung{#1}}
+\newcommand{\ArtDerArbeit}[1]{\def\DieArtDerArbeit{#1}}
+\newcommand{\Literaturverzeichnis}{Literaturverzeichnis}
+
+\newcommand{\settingBibFootnoteCite}{
+	\setlength{\bibparsep}{\parskip}		  % Add some space between biblatex entries in the bibliography
+	\addbibresource{40-backmatter/bibliography}	    % Add file bibliography.bib as biblatex resource
+	\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}},}
+}
+
+\newcommand{\setTitlepage}{
+    \hypersetup{pageanchor=false} 	% Disable anchors for the title
+    \input{10-frontmatter/titlepage}
+    \pagenumbering{roman}         	% This starts the Roman 'i'
+    \hypersetup{pageanchor=true}  	% Re-enable for the TOC/Intro
+    \normalfont 
+}
+
+\newcommand{\initializeText}{
+	\clearpage
+    \pagestyle{scrheadings}
+    \automark[chapter]{chapter}
+	%\ihead{\chaptername~\thechapter} % Neue Header-Definition
+	\pagenumbering{arabic}           % Arabische Seitenzahlen
+}
+
+\newcommand{\initializeBibliography}{
+	\ihead{}
+	%\printbibliography[title=\Literaturverzeichnis] 
+	\cleardoublepage
+}
+
+\newcommand{\initializeAppendix}{
+  \appendix
+  \ihead{}
+  \cftaddtitleline{toc}{chapter}{Anhang}{}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%             Zitierstiele            %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Verwende biblatex für Bibliographie mit einem harvardähnlichen Stil wie authoryear
+%\usepackage[backend=biber, style=authoryear, natbib=true]{biblatex}
+%\addbibresource{40-backmatter/bibliography.bib} % Stelle sicher, dass der Pfad zur Bib-Datei korrekt ist
+
+%\usepackage[square, numbers]{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%         Layout - Definieren         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Page Layout
+\oddsidemargin=0mm
+\evensidemargin=0mm
+\textwidth=159mm
+\topmargin=-18mm
+\headsep=10mm
+\textheight=251mm
+\footheight=15mm
+
+\renewcommand*{\familydefault}{\rmdefault}
+\addtokomafont{disposition}{\sffamily}
+
+%\makeindex
+
+% --- ANPASSUNG FÜR KAPITELÜBERSCHRIFTEN ---
+% Entfernt den vertikalen Abstand vor der Kapitelüberschrift. (liegt an Dokumentenklasse scrreprt, die Teil der KOMA-Script-Familie ist) 
+\RedeclareSectionCommand[
+  beforeskip=0pt, % Setzt den Abstand VOR der Überschrift auf Null
+  afterskip=2\baselineskip % Definiert einen sauberen Abstand NACH der Überschrift
+]{chapter}
+
+% --- ANPASSUNG FÜR SECTION- UND SUBSECTION-ÜBERSCHRIFTEN ---
+\RedeclareSectionCommand[
+  beforeskip=0pt,
+  afterskip=0.1\baselineskip % Setzt den Abstand DANACH auf eine halbe Zeilenhöhe
+]{section}
+
+\RedeclareSectionCommand[
+  beforeskip=0pt,
+  afterskip=0.1\baselineskip % Setzt den Abstand DANACH auf eine halbe Zeilenhöhe
+]{subsection}
+
+\RedeclareSectionCommand[
+  beforeskip=0.2\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip,
+  afterskip=-2em % Ein negativer Wert sorgt dafür, dass der Text in derselben Zeile weitergeht
+]{paragraph}
+
+
+%%% Inhaltsverzeichnis Einstellungen %%%
+
+\setcounter{tocdepth}{1}

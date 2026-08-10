@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   AUTOR:
+%   Felix Niklas Regler
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[fontsize=11pt,BCOR=5mm,DIV=12,parskip=half,listof=totoc, paper=a4,toc=bibliography,numbers=noenddot]{scrreprt}
+               
+% CONFIG FILE
+\input{00-meta_config/config}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   PERSÖNLICHE ANGABEN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+    pdftitle={Evaluating and Optimizing Text-Embedding Quality for German Tax Law Retrieval},
+    pdfauthor={Felix Niklas Regler},
+    pdfsubject={bachelor thesis - Evaluating and Optimizing Text-Embedding Quality for German Tax Law Retrieval},
+    pdfkeywords={RAG, LLM, Vector Geometry, Retrieval, Optimization, Tax Law, German, Text Embeddings},
+    pdfcreator={pdflatex},
+    colorlinks=true, 
+    hidelinks       
+}
+
+\ArtDerArbeit{Bachelor}
+\TitelDerArbeit{Evaluating and Optimizing Text-Embedding Quality for German Tax Law Retrieval}
+\AutorDerArbeit{Felix Niklas Regler}
+\Abteilung{Tax \& Legal Digital}
+\Firma{PricewaterhouseCoopers GmbH WPG}
+\Kurs{WDSKI23B}
+% \Studienrichtung{Data Science and Artificial Intelligence}
+\Matrikelnummer{9445603}
+\Studiengangsleiter{Prof. Dr. Drabant}
+\WissBetreuer{Prof. Dr. Scherer}
+\FirmenBetreuer{Sebastian Ziesing (Manager, PwC)}
+
+\Bearbeitungszeitraum{16.02.2026 -- 11.05.2026}
+\Abgabedatum{11.05.2026}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   STRUCTURE OF THE THESIS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\setTitlepage
+
+%%%%% DECLARATION OF AUTHORSHIP %%%%%
+
+\input{10-frontmatter/declaration-of-authorship}
+\cleardoublepage
+
+%%%%% ABSTRACT %%%%%
+
+\input{10-frontmatter/abstract}
+\cleardoublepage
+
+%%%%% LISTS %%%%%
+
+% ---- TABLE OF CONTENTS ----
+\tableofcontents
+\cleardoublepage
+
+% ---- List of Figures ----
+\listoffigures
+\cleardoublepage
+
+% ---- List of Tables ----
+\listoftables 
+\cleardoublepage
+
+% ---- List of Abbreviations ----
+\input{10-frontmatter/acronyms}
+\cleardoublepage
+
+\input{10-frontmatter/notation.tex}
+\cleardoublepage
+
+
+%%%%% CHAPTERS AND APPENDICES %%%%%
+\initializeText
+
+% ---- INTRODUCTION ----
+
+\input{20-chapters/01-intro/00-intro.tex}
+
+% ---- MAIN  CHAPTERS ----
+\input{20-chapters/02-theory/02-01-theory.tex}
+
+\input{20-chapters/03-related-work/03-01-related-work.tex}
+
+\cleardoubleemptypage
+
+Here would the next chapter start...
+
+% \input{20-chapters/04-problem_analysis/04-00-problem_analysis.tex}
+
+% \input{20-chapters/05-methodology/05-00-methodology.tex}
+
+% \input{20-chapters/06-implementation/06-01-implementation.tex}
+
+% \input{20-chapters/07-evaluation/07-01-evaluation.tex}
+
+% \input{20-chapters/08-discussion/08-01-discussion.tex}
+
+% \input{20-chapters/09-conclusion/09-00-conclusion.tex}
+
+
+
+
+%%%%% ANHÄNGE %%%%%
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+    \Huge \bfseries Appendix
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+
+\appendix
+\ihead{}
+\pagenumbering{Roman}
+
+\chapter{Supplementary Corpus Analysis}
+\label{app:corpus}
+
+% \input{50-appendix/04-analysis/corpus.tex}
+
+This would be appendix A.
+
+%%%%
+
+% ─── Appendix B ───────────────────────
+\chapter{Implementation Details}
+\label{app:implementation}
+
+% \input{50-appendix/06-implementation/enviroment.tex}
+
+Put here more Appendix content, e.g. implementation details, code snippets, etc.
+
+
+%%%%% BIBLIOGRAPHY %%%%%
+
+\nocite{*}
+
+\initializeBibliography
+\bibliographystyle{IEEEtranN}
+
+% Multiple bib files are used to keep the bibliography organized and manageable. 
+
+\bibliography{40-backmatter/bibliography/method,40-backmatter/bibliography/ai_law,40-backmatter/bibliography/nlp,40-backmatter/bibliography/tokenizer,40-backmatter/bibliography/llm_judge,40-backmatter/bibliography/linguistics,40-backmatter/bibliography/benchmarks,40-backmatter/bibliography/law,40-backmatter/bibliography/domain-adaptation,40-backmatter/bibliography/embedding,40-backmatter/bibliography/embedding_geometry,40-backmatter/bibliography/embedding_optimization,40-backmatter/bibliography/rag,40-backmatter/bibliography/intro,40-backmatter/bibliography/neo,40-backmatter/bibliography/math}
+
+\cleardoublepage
+
+\end{document}

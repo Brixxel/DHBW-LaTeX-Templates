@@ -1,0 +1,184 @@
+@inproceedings{gururangan_dont_2020,
+    title = {Don{'}t Stop Pretraining: Adapt Language Models to Domains and Tasks},
+    author = {Gururangan, Suchin  and
+      Marasovi{\'c}, Ana  and
+      Swayamdipta, Swabha  and
+      Lo, Kyle  and
+      Beltagy, Iz  and
+      Downey, Doug  and
+      Smith, Noah A.},
+    editor = {Jurafsky, Dan  and
+      Chai, Joyce  and
+      Schluter, Natalie  and
+      Tetreault, Joel},
+    booktitle = {Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics},
+    month = {july},
+    year = {2020},
+    address = {Online},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2020.acl-main.740/},
+    doi = {10.18653/v1/2020.acl-main.740},
+    pages = {8342--8360},
+    abstract = "Language models pretrained on text from a wide variety of sources form the foundation of today{'}s NLP. In light of the success of these broad-coverage models, we investigate whether it is still helpful to tailor a pretrained model to the domain of a target task. We present a study across four domains (biomedical and computer science publications, news, and reviews) and eight classification tasks, showing that a second phase of pretraining in-domain (domain-adaptive pretraining) leads to performance gains, under both high- and low-resource settings. Moreover, adapting to the task{'}s unlabeled data (task-adaptive pretraining) improves performance even after domain-adaptive pretraining. Finally, we show that adapting to a task corpus augmented using simple data selection strategies is an effective alternative, especially when resources for domain-adaptive pretraining might be unavailable. Overall, we consistently find that multi-phase adaptive pretraining offers large gains in task performance."
+}
+
+@inproceedings{chalkidis-etal-2020-legal,
+    title = {{LEGAL}-{BERT}: The Muppets straight out of Law School},
+    author = {Chalkidis, Ilias  and
+      Fergadiotis, Manos  and
+      Malakasiotis, Prodromos  and
+      Aletras, Nikolaos  and
+      Androutsopoulos, Ion},
+    editor = {Cohn, Trevor  and
+      He, Yulan  and
+      Liu, Yang},
+    booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2020},
+    month = {november},
+    year = {2020},
+    address = {Online},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2020.findings-emnlp.261/},
+    doi = {10.18653/v1/2020.findings-emnlp.261},
+    pages = {2898--2904},
+    abstract = "BERT has achieved impressive performance in several NLP tasks. However, there has been limited investigation on its adaptation guidelines in specialised domains. Here we focus on the legal domain, where we explore several approaches for applying BERT models to downstream legal tasks, evaluating on multiple datasets. Our findings indicate that the previous guidelines for pre-training and fine-tuning, often blindly followed, do not always generalize well in the legal domain. Thus we propose a systematic investigation of the available strategies when applying BERT in specialised domains. These are: (a) use the original BERT out of the box, (b) adapt BERT by additional pre-training on domain-specific corpora, and (c) pre-train BERT from scratch on domain-specific corpora. We also propose a broader hyper-parameter search space when fine-tuning for downstream tasks and we release LEGAL-BERT, a family of BERT models intended to assist legal NLP research, computational law, and legal technology applications."
+}
+
+@article{Lee_2019_BioBERT,
+author = {Lee, Jinhyuk and Yoon, Wonjin and Kim, Sungdong and Kim, Donghyeon and Kim, Sunkyu and So, Chan and Kang, Jaewoo},
+year = {2019},
+month = {09},
+pages = {},
+title = {BioBERT: a pre-trained biomedical language representation model for biomedical text mining},
+volume = {36},
+journal = {Bioinformatics (Oxford, England)},
+doi = {10.1093/bioinformatics/btz682}
+}
+
+@inproceedings{beltragy_2019_scibert,
+    title = {{S}ci{BERT}: A Pretrained Language Model for Scientific Text},
+    author = {Beltagy, Iz  and
+      Lo, Kyle  and
+      Cohan, Arman},
+    editor = {Inui, Kentaro  and
+      Jiang, Jing  and
+      Ng, Vincent  and
+      Wan, Xiaojun},
+    booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)},
+    month = {november},
+    year = {2019},
+    address = {Hong Kong, China},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/D19-1371/},
+    doi = {10.18653/v1/D19-1371},
+    pages = {3615--3620},
+    abstract = "Obtaining large-scale annotated data for NLP tasks in the scientific domain is challenging and expensive. We release SciBERT, a pretrained language model based on BERT (Devlin et. al., 2018) to address the lack of high-quality, large-scale labeled scientific data. SciBERT leverages unsupervised pretraining on a large multi-domain corpus of scientific publications to improve performance on downstream scientific NLP tasks. We evaluate on a suite of tasks including sequence tagging, sentence classification and dependency parsing, with datasets from a variety of scientific domains. We demonstrate statistically significant improvements over BERT and achieve new state-of-the-art results on several of these tasks. The code and pretrained models are available at \url{https://github.com/allenai/scibert/}."
+}
+
+@inproceedings{alsentzer_2019_clinical_bert,
+    title = {Publicly Available Clinical {BERT} Embeddings},
+    author = {Alsentzer, Emily  and
+      Murphy, John  and
+      Boag, William  and
+      Weng, Wei-Hung  and
+      Jindi, Di  and
+      Naumann, Tristan  and
+      McDermott, Matthew},
+    editor = {Rumshisky, Anna  and
+      Roberts, Kirk  and
+      Bethard, Steven  and
+      Naumann, Tristan},
+    booktitle = {Proceedings of the 2nd Clinical Natural Language Processing Workshop},
+    month = {june},
+    year = {2019},
+    address = {Minneapolis, Minnesota, USA},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/W19-1909/},
+    doi = {10.18653/v1/W19-1909},
+    pages = {72--78},
+    abstract = "Contextual word embedding models such as ELMo and BERT have dramatically improved performance for many natural language processing (NLP) tasks in recent months. However, these models have been minimally explored on specialty corpora, such as clinical text; moreover, in the clinical domain, no publicly-available pre-trained BERT models yet exist. In this work, we address this need by exploring and releasing BERT models for clinical text: one for generic clinical text and another for discharge summaries specifically. We demonstrate that using a domain-specific model yields performance improvements on 3/5 clinical NLP tasks, establishing a new state-of-the-art on the MedNLI dataset. We find that these domain-specific models are not as performant on 2 clinical de-identification tasks, and argue that this is a natural consequence of the differences between de-identified source text and synthetically non de-identified task text."
+}
+
+%%%%% FINANCE
+
+@misc{yang_finbert_2020,
+	title = {{FinBERT}: A Pretrained Language Model for Financial Communications},
+	url = {http://arxiv.org/abs/2006.08097},
+	doi = {10.48550/arXiv.2006.08097},
+	shorttitle = {{FinBERT}},
+	abstract = {Contextual pretrained language models, such as {BERT} (Devlin et al., 2019), have made signiﬁcant breakthrough in various {NLP} tasks by training on large scale of unlabeled text resources. Financial sector also accumulates large amount of ﬁnancial communication text. However, there is no pretrained ﬁnance speciﬁc language models available. In this work, we address the need by pretraining a ﬁnancial domain speciﬁc {BERT} models, {FinBERT}, using a large scale of ﬁnancial communication corpora. Experiments on three ﬁnancial sentiment classiﬁcation tasks conﬁrm the advantage of {FinBERT} over generic domain {BERT} model. The code and pretrained models are available at https://github.com/yya518/{FinBERT}. We hope this will be useful for practitioners and researchers working on ﬁnancial {NLP} tasks.},
+	number = {{arXiv}:2006.08097},
+	publisher = {{arXiv}},
+	author = {Yang, Yi and {UY}, Mark Christopher Siy and Huang, Allen},
+	urldate = {2026-02-14},
+	date = {2020-07-09},
+	langid = {english},
+	eprinttype = {arxiv},
+	eprint = {2006.08097 [cs]},
+	keywords = {Computer Science - Computation and Language},
+	file = {PDF:/Users/fregler001/Zotero/storage/HLCVZ6XF/Yang et al. - 2020 - FinBERT A Pretrained Language Model for Financial Communications.pdf:application/pdf},
+}
+
+@misc{wu2023bloomberggpt,
+      title={BloombergGPT: A Large Language Model for Finance}, 
+      author={Shijie Wu and Ozan Irsoy and Steven Lu and Vadim Dabravolski and Mark Dredze and Sebastian Gehrmann and Prabhanjan Kambadur and David Rosenberg and Gideon Mann},
+      year={2023},
+      eprint={2303.17564},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2303.17564}, 
+}
+
+%%%% LEGAL
+
+@misc{hua2022legalrelectra,
+      title={LegalRelectra: Mixed-domain Language Modeling for Long-range Legal Text Comprehension}, 
+      author={Wenyue Hua and Yuchen Zhang and Zhe Chen and Josie Li and Melanie Weber},
+      year={2022},
+      eprint={2212.08204},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2212.08204}, 
+}
+
+@inproceedings{niklaus_2024_multilegalpile,
+    title = {{M}ulti{L}egal{P}ile: A 689{GB} Multilingual Legal Corpus},
+    author = {Niklaus, Joel  and
+      Matoshi, Veton  and
+      St{\"u}rmer, Matthias  and
+      Chalkidis, Ilias  and
+      Ho, Daniel},
+    editor = {Ku, Lun-Wei  and
+      Martins, Andre  and
+      Srikumar, Vivek},
+    booktitle = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+    month = {august},
+    year = {2024},
+    address = {Bangkok, Thailand},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2024.acl-long.805/},
+    doi = {10.18653/v1/2024.acl-long.805},
+    pages = {15077--15094},
+    abstract = {Large, high-quality datasets are crucial for training Large Language Models (LLMs). However, so far, few datasets are available for specialized critical domains such as law and the available ones are often small and only in English. To fill this gap, we curate and release MultiLegalPile, a 689GB corpus in 24 languages from 17 jurisdictions. MultiLegalPile includes diverse legal data sources and allows for pretraining NLP models under fair use, with most of the dataset licensed very permissively. We pretrain two RoBERTa models and one Longformer multilingually, and 24 monolingual models on each of the language-specific subsets and evaluate them on LEXTREME. Additionally, we evaluate the English and multilingual models on LexGLUE. Our multilingual models set a new SotA on LEXTREME and our English models on LexGLUE. We release the dataset, trained models, and all code under the most open licenses possible.}
+}
+
+%%%%% German Tax Law %%%%%
+
+@misc{wind2026steuerllm,
+      title={SteuerLLM: Local specialized large language model for German tax law analysis}, 
+      author={Sebastian Wind and Jeta Sopa and Laurin Schmid and Quirin Jackl and Sebastian Kiefer and Fei Wu and Martin Mayr and Harald Köstler and Gerhard Wellein and Andreas Maier and Soroosh Tayebi Arasteh},
+      year={2026},
+      eprint={2602.11081},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2602.11081}, 
+}
+
+@misc{luketina2025using,
+      title={Using Large Language Models for Legal Decision-Making in Austrian Value-Added Tax Law: An Experimental Study}, 
+      author={Marina Luketina and Andrea Benkel and Christoph G. Schuetz},
+      year={2025},
+      eprint={2507.08468},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2507.08468}, 
+}

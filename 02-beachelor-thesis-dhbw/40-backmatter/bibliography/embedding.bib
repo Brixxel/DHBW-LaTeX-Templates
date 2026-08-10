@@ -1,0 +1,315 @@
+@article{Salton_AVS_1975,
+  title={A vector space model for automatic indexing},
+  author={Gerard Salton and Anita Wong and Chung-Shu Yang},
+  journal={Commun. ACM},
+  year={1975},
+  month={November},
+  volume={18},
+  pages={613-620},
+  url={https://doi.org/10.1145/361219.361220}
+}
+
+
+@inproceedings{Vaswani2017,
+ author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, \L ukasz and Polosukhin, Illia},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Attention is All you Need},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf},
+ volume = {30},
+ year = {2017}
+}
+
+
+@article{Arora2016_Latent,
+	title = {A Latent Variable Model Approach to {PMI}-based Word Embeddings},
+	volume = {4},
+	issn = {2307-387X},
+	url = {https://direct.mit.edu/tacl/article/43373},
+	doi = {10.1162/tacl_a_00106},
+	abstract = {Semantic word embeddings represent the meaning of a word via a vector, and are created by diverse methods. Many use nonlinear operations on co-occurrence statistics, and have hand-tuned hyperparameters and reweighting methods.},
+	pages = {385--399},
+	journal= {Transactions of the Association for Computational Linguistics},
+	author = {Arora, Sanjeev and Li, Yuanzhi and Liang, Yingyu and Ma, Tengyu and Risteski, Andrej},
+	urldate = {2026-03-15},
+	date = {2016-12},
+  year = {2016},
+  month = {december},
+	langid = {english},
+	file = {PDF:/Users/fregler001/Zotero/storage/JUCJPYRT/Arora et al. - 2016 - A Latent Variable Model Approach to PMI-based Word Embeddings.pdf:application/pdf},
+}
+
+
+
+@inproceedings{gao-etal-2021-simcse,
+    title = {{S}im{CSE}: Simple Contrastive Learning of Sentence Embeddings},
+    author = {Gao, Tianyu  and
+      Yao, Xingcheng  and
+      Chen, Danqi},
+    editor = {Moens, Marie-Francine  and
+      Huang, Xuanjing  and
+      Specia, Lucia  and
+      Yih, Scott Wen-tau},
+    booktitle = {Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing},
+    month = {november},
+    year = {2021},
+    address = {Online and Punta Cana, Dominican Republic},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2021.emnlp-main.552/},
+    doi = {10.18653/v1/2021.emnlp-main.552},
+    pages = {6894--6910},
+    abstract = "This paper presents SimCSE, a simple contrastive learning framework that greatly advances the state-of-the-art sentence embeddings. We first describe an unsupervised approach, which takes an input sentence and predicts itself in a contrastive objective, with only standard dropout used as noise. This simple method works surprisingly well, performing on par with previous supervised counterparts. We find that dropout acts as minimal data augmentation and removing it leads to a representation collapse. Then, we propose a supervised approach, which incorporates annotated pairs from natural language inference datasets into our contrastive learning framework, by using ``entailment'' pairs as positives and ``contradiction'' pairs as hard negatives. We evaluate SimCSE on standard semantic textual similarity (STS) tasks, and our unsupervised and supervised models using BERT base achieve an average of 76.3{\%} and 81.6{\%} Spearman{'}s correlation respectively, a 4.2{\%} and 2.2{\%} improvement compared to previous best results. We also show{---}both theoretically and empirically{---}that contrastive learning objective regularizes pre-trained embeddings' anisotropic space to be more uniform, and it better aligns positive pairs when supervised signals are available."
+}
+
+
+@inproceedings{peters_2018_deep,
+    title = {Deep Contextualized Word Representations},
+    author = {Peters, Matthew E.  and
+      Neumann, Mark  and
+      Iyyer, Mohit  and
+      Gardner, Matt  and
+      Clark, Christopher  and
+      Lee, Kenton  and
+      Zettlemoyer, Luke},
+    editor = {Walker, Marilyn  and
+      Ji, Heng  and
+      Stent, Amanda},
+    booktitle = {Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)},
+    month = {june},
+    year = {2018},
+    address = {New Orleans, Louisiana},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/N18-1202/},
+    doi = {10.18653/v1/N18-1202},
+    pages = {2227--2237},
+    abstract = "We introduce a new type of deep contextualized word representation that models both (1) complex characteristics of word use (e.g., syntax and semantics), and (2) how these uses vary across linguistic contexts (i.e., to model polysemy). Our word vectors are learned functions of the internal states of a deep bidirectional language model (biLM), which is pre-trained on a large text corpus. We show that these representations can be easily added to existing models and significantly improve the state of the art across six challenging NLP problems, including question answering, textual entailment and sentiment analysis. We also present an analysis showing that exposing the deep internals of the pre-trained network is crucial, allowing downstream models to mix different types of semi-supervision signals."
+}
+
+
+%%%%% ------ BERT
+
+@inproceedings{devlin_2019_bert,
+    title = {{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+    author = {Devlin, Jacob  and
+      Chang, Ming-Wei  and
+      Lee, Kenton  and
+      Toutanova, Kristina},
+    editor = {Burstein, Jill  and
+      Doran, Christy  and
+      Solorio, Thamar},
+    booktitle = {Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)},
+    month = {june},
+    year = {2019},
+    address = {Minneapolis, Minnesota},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/N19-1423/},
+    doi = {10.18653/v1/N19-1423},
+    pages = {4171--4186},
+    abstract = "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5 (7.7 point absolute improvement), MultiNLI accuracy to 86.7{\%} (4.6{\%} absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement)."
+}
+
+
+@inproceedings{reimers2019sentence,
+    title = {{Sentence-BERT}: Sentence Embeddings using {S}iamese {BERT}-Networks},
+    author = {Reimers, Nils  and
+      Gurevych, Iryna},
+    editor = {Inui, Kentaro  and
+      Jiang, Jing  and
+      Ng, Vincent  and
+      Wan, Xiaojun},
+    booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)},
+    month = {november},
+    year = {2019},
+    address = {Hong Kong, China},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/D19-1410/},
+    doi = {10.18653/v1/D19-1410},
+    pages = {3982--3992},
+    abstract = "BERT (Devlin et al., 2018) and RoBERTa (Liu et al., 2019) has set a new state-of-the-art performance on sentence-pair regression tasks like semantic textual similarity (STS). However, it requires that both sentences are fed into the network, which causes a massive computational overhead: Finding the most similar pair in a collection of 10,000 sentences requires about 50 million inference computations ({\textasciitilde}65 hours) with BERT. The construction of BERT makes it unsuitable for semantic similarity search as well as for unsupervised tasks like clustering. In this publication, we present Sentence-BERT (SBERT), a modification of the pretrained BERT network that use siamese and triplet network structures to derive semantically meaningful sentence embeddings that can be compared using cosine-similarity. This reduces the effort for finding the most similar pair from 65 hours with BERT / RoBERTa to about 5 seconds with SBERT, while maintaining the accuracy from BERT. We evaluate SBERT and SRoBERTa on common STS tasks and transfer learning tasks, where it outperforms other state-of-the-art sentence embeddings methods."
+}
+
+@article{rogers_2020_bertology,
+    title = {A Primer in {BERT}ology: What We Know About How {BERT} Works},
+    author = {Rogers, Anna  and
+      Kovaleva, Olga  and
+      Rumshisky, Anna},
+    editor = {Johnson, Mark  and
+      Roark, Brian  and
+      Nenkova, Ani},
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {8},
+    year = {2020},
+    address = {Cambridge, MA},
+    publisher = {MIT Press},
+    url = {https://aclanthology.org/2020.tacl-1.54/},
+    doi = {10.1162/tacl_a_00349},
+    pages = {842--866},
+    abstract = "Transformer-based models have pushed state of the art in many areas of NLP, but our understanding of what is behind their success is still limited. This paper is the first survey of over 150 studies of the popular BERT model. We review the current state of knowledge about how BERT works, what kind of information it learns and how it is represented, common modifications to its training objectives and architecture, the overparameterization issue, and approaches to compression. We then outline directions for future research."
+}
+
+%%%%% ---- Word2Vec
+
+@inproceedings{Mikolov2013,
+  author=     {Tomas Mikolov and Kai Chen and Greg Corrado and Jeffrey Dean},
+  title     = {Efficient Estimation of Word Representations in Vector Space},
+  booktitle = {1st International Conference on Learning Representations, {ICLR} 2013, Scottsdale, Arizona, USA, May 2-4, 2013, Workshop Track Proceedings},
+  editor    = {Yoshua Bengio and Yann LeCun},
+  year      = {2013},
+  url       = {http://arxiv.org/abs/1301.3781}
+}
+
+@inproceedings{MikolovSCCD13,
+ author = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg S and Dean, Jeff},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {C.J. Burges and L. Bottou and M. Welling and Z. Ghahramani and K.Q. Weinberger},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Distributed Representations of Words and Phrases and their Compositionality},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf},
+ volume = {26},
+ year = {2013}
+}
+
+
+%%%% GLOVE
+
+@inproceedings{pennington2014glove,
+    title = {GloVe: Global Vectors for Word Representation},
+    author = {Pennington, Jeffrey  and
+      Socher, Richard  and
+      Manning, Christopher},
+    editor = {Moschitti, Alessandro  and
+      Pang, Bo  and
+      Daelemans, Walter},
+    booktitle = {Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing ({EMNLP})},
+    month = {october},
+    year = {2014},
+    address = {Doha, Qatar},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/D14-1162/},
+    doi = {10.3115/v1/D14-1162},
+    pages = {1532--1543}
+}
+
+
+
+%%%% GPT
+
+@misc{radford_improving_2018,
+  added-at = {2024-01-07T20:57:58.000+0100},
+  author = {Radford, Alec and Narasimhan, Karthik and Salimans, Tim and Sutskever, Ilya},
+  biburl = {https://www.bibsonomy.org/bibtex/2f37881405991d6cd69534d152ff72e93/ghagerer},
+  interhash = {5c343ed9a31ac52fd17a898f72af228f},
+  intrahash = {f37881405991d6cd69534d152ff72e93},
+  keywords = {chatgpt codefreeze llms openai reinforcement-learning},
+  timestamp = {2024-01-07T20:57:58.000+0100},
+  title = {Improving language understanding by generative pre-training},
+  url = {https://www.mikecaptain.com/resources/pdf/GPT-1.pdf},
+  urldate = {2023-01-06},
+  year = 2018
+}
+
+%%%% Pooling
+
+@misc{xing2025comparative,
+      title={Comparative Analysis of Pooling Mechanisms in LLMs: A Sentiment Analysis Perspective}, 
+      author={Jinming Xing and Dongwen Luo and Chang Xue and Ruilin Xing},
+      year={2025},
+      eprint={2411.14654},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2411.14654}, 
+}
+
+%%% ALT-Models
+
+@inproceedings{Chen_BGE_M3_2024,
+    title = {M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation},
+    author = {Chen, Jianlyu  and
+      Xiao, Shitao  and
+      Zhang, Peitian  and
+      Luo, Kun  and
+      Lian, Defu  and
+      Liu, Zheng},
+    editor = {Ku, Lun-Wei  and
+      Martins, Andre  and
+      Srikumar, Vivek},
+    booktitle = {Findings of the Association for Computational Linguistics: ACL 2024},
+    month = {august},
+    year = {2024},
+    address = {Bangkok, Thailand},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2024.findings-acl.137/},
+    doi = {10.18653/v1/2024.findings-acl.137},
+    pages = {2318--2335},
+    abstract = {In this paper, we introduce a new embedding model called M3-Embedding, which is distinguished for its versatility in Multi-Linguality, Multi-Functionality, and Multi-Granularity. It provides a uniform support for the semantic retrieval of more than 100 working languages. It can simultaneously accomplish the three common retrieval functionalities: dense retrieval, multi-vector retrieval, and sparse retrieval. Besides, it is also capable of processing inputs of different granularities, spanning from short sentences to long documents of up to 8,192 tokens. The effective training of M3-Embedding presents a series of technical contributions. Notably, we propose a novel self-knowledge distillation approach, where the relevance scores from different retrieval functionalities can be integrated as the teacher signal to enhance the training quality. We also optimize the batching strategy, which enables a large batch size and high training throughput to improve the discriminativeness of embeddings. M3-Embedding exhibits a superior performance in our experiment, leading to new state-of-the-art results on multilingual, cross-lingual, and long-document retrieval benchmarks.}
+}
+
+@misc{Wang_E5_2024,
+      title={Multilingual E5 Text Embeddings: A Technical Report}, 
+      author={Liang Wang and Nan Yang and Xiaolong Huang and Linjun Yang and Rangan Majumder and Furu Wei},
+      year={2024},
+      eprint={2402.05672},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2402.05672}, 
+}
+
+@misc{germansemantic2024,
+  title        = {german-semantic-v3b},
+  author       = {{Aaron Chibb}},
+  year         = {2024},
+  howpublished = {Hugging Face Model Hub},
+  url          = {https://huggingface.co/aari1995/German_Semantic_V3b},
+  note         = {Accessed: 2026-03-15}
+}
+
+@inproceedings{Chan_German_GPT_2020,
+    title = {{G}erman{'}s Next Language Model},
+    author = {Chan, Branden  and
+      Schweter, Stefan  and
+      M{\"o}ller, Timo},
+    editor = {Scott, Donia  and
+      Bel, Nuria  and
+      Zong, Chengqing},
+    booktitle = {Proceedings of the 28th International Conference on Computational Linguistics},
+    month = {december},
+    year = {2020},
+    address = {Barcelona, Spain (Online)},
+    publisher = {International Committee on Computational Linguistics},
+    url = {https://aclanthology.org/2020.coling-main.598/},
+    doi = {10.18653/v1/2020.coling-main.598},
+    pages = {6788--6796},
+    abstract = "In this work we present the experiments which lead to the creation of our BERT and ELECTRA based German language models, GBERT and GELECTRA. By varying the input training data, model size, and the presence of Whole Word Masking (WWM) we were able to attain SoTA performance across a set of document classification and named entity recognition (NER) tasks for both models of base and large size. We adopt an evaluation driven approach in training these models and our results indicate that both adding more data and utilizing WWM improve model performance. By benchmarking against existing German models, we show that these models are the best German models to date. All trained models will be made publicly available to the research community."
+}
+
+@misc{Wang_MiniLM_2020,
+  title        = {all-MiniLM-L6-v2},
+  year         = {2020},
+  howpublished = {Hugging Face Model Hub},
+  url          = {https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2},
+  note         = {Accessed: 2026-03-15}
+}
+
+
+@misc{liu2019roberta,
+      title={RoBERTa: A Robustly Optimized BERT Pretraining Approach}, 
+      author={Yinhan Liu and Myle Ott and Naman Goyal and Jingfei Du and Mandar Joshi and Danqi Chen and Omer Levy and Mike Lewis and Luke Zettlemoyer and Veselin Stoyanov},
+      year={2019},
+      eprint={1907.11692},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/1907.11692}, 
+}
+
+@misc{he2021debertadecodingenhancedbertdisentangled,
+      title={DeBERTa: Decoding-enhanced BERT with Disentangled Attention}, 
+      author={Pengcheng He and Xiaodong Liu and Jianfeng Gao and Weizhu Chen},
+      year={2021},
+      eprint={2006.03654},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2006.03654}, 
+}

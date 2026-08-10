@@ -1,0 +1,72 @@
+\section{Embedding Optimisation Strategies}
+\label{sec:optimization_strategies}
+
+As established in Section \ref{sec:geometry}, embedding models frequently produce pathologically structured representation spaces. While pipeline-level interventions within a \ac{RAG} framework (cf. Section \ref{sec:rag_pipeline}) attempt to compensate for poor retrieval outcomes a posteriori, they do not resolve the underlying geometric distortions. To fundamentally heal the representation space, interventions must target the embeddings directly \cite{ethayarajh-2019-contextual, GaoHTQWL19, Li_2020_Sentence}.
+
+A highly efficient approach is the application of post-hoc geometric transformations. These methods apply parameter-free or computationally inexpensive linear-algebraic operations directly to the output embeddings $\mathbf{z} \in \mathbb{R}^d$ to actively enforce the geometric goals \cite{apidianaki_2023_word}. To systematically optimise this space, multiple mathematical angles exist, ranging from simple spatial translation to strict variance equalization \cite{mu2018allbutthetop, su2021whitening}.
+
+% ----------------------------------------------------
+% Centering & Normalization
+% ----------------------------------------------------
+\subsection{Centering and $L_2$-Normalization}
+\label{sec:theory_centering_norm}
+
+The most fundamental geometric corrections address the position and scale of the embedding space. As derived in Equation \ref{eq:mean_shift}, a spatial shift away from the origin introduces a massive constant bias $\|\boldsymbol{\mu}\|_2^2$ that dominates similarity calculations. Centering, or Mean-Shift Removal, directly eliminates this bias by subtracting the corpus centroid $\boldsymbol{\mu}$ from every vector $\tilde{\mathbf{z}} = \mathbf{z} - \boldsymbol{\mu}$. This translational shift forces the mean dominance ratio to zero ($D_\mu \to 0$), ensuring that subsequent dot products exclusively measure the semantic residual signal \cite{mu2018allbutthetop,ethayarajh-2019-contextual}.
+
+Following translation, $L_2$-Normalization standardizes the scale of the vectors by dividing each embedding by its Euclidean norm $\hat{\mathbf{z}} = \tilde{\mathbf{z}} / \|\tilde{\mathbf{z}}\|_2$. This projects all representations onto the unit hypersphere $\mathbb{S}^{d-1}$ \cite{wang-isola-2020-contrastive}. %On this manifold, the dot product mathematically equates to the cosine similarity, which is a prerequisite for highly optimised \ac{MIPS} algorithms and actively improves the uniformity of the space.
+
+% ----------------------------------------------------
+% PCA
+% ----------------------------------------------------
+\subsection{Dimensionality Reduction via \ac{PCA}}
+\label{sec:theory_pca}
+
+
+If the data manifold exhibits a low intrinsic dimensionality $d_{\mathrm{int}} \ll d$ (cf. Section \ref{sec:intrinsic_dim}), the $d - d_{\mathrm{int}}$ residual dimensions contribute statistical noise rather than semantic signal. \ac{PCA} can be employed to compress the representations while retaining the primary semantic variance. The projection onto the leading $d'$ principal components is formalized as:
+\begin{equation}
+    \hat{\mathbf{z}} = \mathbf{P}_{d'}^\top\,(\mathbf{z} - \boldsymbol{\mu}) \quad \in \mathbb{R}^{d'}
+    \label{eq:pca_proj}
+\end{equation}
+where $\mathbf{P}_{d'} = [\mathbf{v}_1, \dots, \mathbf{v}_{d'}] \in \mathbb{R}^{d \times d'}$ contains the top-$d'$ eigenvectors of the covariance matrix $\boldsymbol{\Sigma}$ \citep[p. 317 f.]{deisenroth2020mathematics}\cite{raunak_2019effective}. Discarding these noise dimensions mitigates the curse of dimensionality, heavily reduces computational retrieval costs and counters the emergence of hubness (cf. Section \ref{sec:hubness}) \cite{Radovanovic2010_Hubs}. Because this linear projection alters the vector magnitudes, the reduced representations can be subsequently $L_2$-normalized $\check{\mathbf{z}} = \hat{\mathbf{z}} / \|\hat{\mathbf{z}}\|_2$, projecting them onto the new unit hypersphere $\mathbb{S}^{d'-1}$ to ensure easier similarity calculations \citep[p. 321 f.]{deisenroth2020mathematics}\cite{raunak_2019effective}.
+
+%where $\mathbf{P}_{d'} = [\mathbf{v}_1, \dots, \mathbf{v}_{d'}] \in \mathbb{R}^{d \times d'}$ contains the top-$d'$ eigenvectors of the covariance matrix $\boldsymbol{\Sigma}$. Discarding noise dimensions simultaneously mitigates the curse of dimensionality, heavily reduces computational retrieval costs and counters the emergence of hubness (cf. Section \ref{sec:hubness}) \cite{Radovanovic2010_Hubs}. However, because standard \ac{PCA} preserves the dominant directions of variance, it does not resolve the problem of anisotropy if these primary components are driven by systematic bias rather than genuine semantic content.
+% ----------------------------------------------------
+% All-but-the-Top (ABTT)
+% ----------------------------------------------------
+\subsection{Mean-Shift and Bias Removal: \ac{ABTT}}
+\label{sec:theory_abtt}
+
+
+While standard \ac{PCA} successfully removes low-variance noise, it inherently preserves the dominant directions of variance \citep[p. 317 f.]{deisenroth2020mathematics}. \citet{mu2018allbutthetop} observed that these leading principal components in contextual embeddings predominantly encode frequency-related artefacts, stop-words and a global directional bias rather than discriminative semantic meaning. To fight this, they proposed the \ac{ABTT} transformation, which removes the projection onto the top-$k$ eigenvectors $\mathbf{v}_1, \dots, \mathbf{v}_k$ from the centered embeddings $\tilde{\mathbf{z}}$:
+
+\begin{equation}
+    \hat{\mathbf{z}} = \tilde{\mathbf{z}} - \sum_{j=1}^{k} (\tilde{\mathbf{z}}^\top \mathbf{v}_j)\,\mathbf{v}_j
+    \label{eq:abtt}
+\end{equation}
+
+By eliminating these dominant directions (typically $k \le 5$), \ac{ABTT} actively reduces the eigenvalue ratio $R_\lambda$, allowing the subtle semantic differences encoded in the lower principal components to dictate the cosine similarity \cite{mu2018allbutthetop, Li_2020_Sentence}.
+
+% ----------------------------------------------------
+% Whitening
+% ----------------------------------------------------
+\subsection{Variance Equalization: Whitening}
+\label{sec:theory_whitening}
+
+Although \ac{ABTT} successfully eliminates the most extreme axes of variance, the remaining dimensions may still scale unequally \cite{mu2018allbutthetop}. A more complex approach to establish a balanced representation space is whitening, which equalizes variance across all dimensions simultaneously by enforcing the strict isotropy condition $\boldsymbol{\Sigma} = \sigma^2 \mathbf{I}_d$ \cite{su2021whitening, rudman-etal-2022-isoscore, Cai2021IsotropyIT}.
+
+Given the eigendecomposition $\boldsymbol{\Sigma} = \mathbf{Q} \boldsymbol{\Lambda} \mathbf{Q}^\top$, with orthogonal eigenvectors $\mathbf{Q}$ and eigenvalues $\boldsymbol{\Lambda} = \text{diag}(\lambda_1, \dots, \lambda_d)$, the \ac{ZCA} whitening matrix is defined as:
+\begin{equation}
+    \mathbf{W}_{\text{ZCA}} = \mathbf{Q}\, \text{diag}\!\left( \frac{1}{\sqrt{\lambda_1 + \epsilon}}, \dots, \frac{1}{\sqrt{\lambda_d + \epsilon}} \right) \mathbf{Q}^\top
+    \label{eq:zca}
+\end{equation}
+where $\epsilon > 0$ is a small regularisation constant preventing the infinite amplification of near-zero eigenvalues. Once the whitening matrix is computed, the new representation $\hat{\mathbf{z}}_i$ is generated by applying this linear transformation directly to the mean-centered original vector $\hat{\mathbf{z}} = \mathbf{W}_{\text{ZCA}}\,\tilde{\mathbf{z}}$. This projection actively reshapes the vector such that the resulting space achieves a perfect IsoScore of $1.0$ \cite{su2021whitening}. Unlike \ac{PCA}-based whitening, \ac{ZCA} whitening preserves the original coordinate axes in a least-squares sense \cite{kessy2018optimal}. However, this strict mathematical isotropy involves a trade-off: dimensions with small eigenvalues are amplified by the factor $1/\sqrt{\lambda_i + \epsilon}$, which may potentially boost irrelevant variance alongside the semantic signal \cite{huang2021whiteningbert,raunak_2019effective}.
+
+
+% ----------------------------------------------------
+% Composability
+% ----------------------------------------------------
+\subsection{Composability of Transforms}
+\label{sec:theory_composability}
+
+
+Crucially, these transform families are not exclusive and can be composed sequentially to accentuate their benefits. For instance, \ac{ABTT} followed by \ac{PCA} first removes the mean-shift and dominant artefact directions and subsequently reduces the dimensionality in the cleaned space. The order in which these operations are applied is of great importance. If, for example, \ac{PCA} is applied after the whitening transformation, it operates on a space that has already been variance-equalised, in which the notion of \emph{top components} differs fundamentally from the original anisotropic space \cite{raunak_2019effective, su2021whitening}.

@@ -1,0 +1,369 @@
+@inproceedings{lewis_rag_2020,
+author = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K\"{u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt\"{a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+title = {Retrieval-augmented generation for knowledge-intensive NLP tasks},
+year = {2020},
+isbn = {9781713829546},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {Large pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when fine-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-specific architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pre-trained models with a differentiable access mechanism to explicit non-parametric memory can overcome this issue, but have so far been only investigated for extractive downstream tasks. We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, and another which can use different passages per token. We fine-tune and evaluate our models on a wide range of knowledge-intensive NLP tasks and set the state of the art on three open domain QA tasks, outperforming parametric seq2seq models and task-specific retrieve-and-extract architectures. For language generation tasks, we find that RAG models generate more specific, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline.},
+booktitle = {Proceedings of the 34th International Conference on Neural Information Processing Systems},
+articleno = {793},
+numpages = {16},
+location = {Vancouver, BC, Canada},
+series = {NIPS '20}
+}
+
+
+@inproceedings{barnett2024seven,
+author = {Barnett, Scott and Kurniawan, Stefanus and Thudumu, Srikanth and Brannelly, Zach and Abdelrazek, Mohamed},
+title = {Seven Failure Points When Engineering a Retrieval Augmented Generation System},
+year = {2024},
+isbn = {9798400705915},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3644815.3644945},
+doi = {10.1145/3644815.3644945},
+abstract = {Software engineers are increasingly adding semantic search capabilities to applications using a strategy known as Retrieval Augmented Generation (RAG). A RAG system involves finding documents that semantically match a query and then passing the documents to a large language model (LLM) such as ChatGPT to extract the right answer using an LLM. RAG systems aim to: a) reduce the problem of hallucinated responses from LLMs, b) link sources/references to generated responses, and c) remove the need for annotating documents with meta-data. However, RAG systems suffer from limitations inherent to information retrieval systems and from reliance on LLMs. In this paper, we present an experience report on the failure points of RAG systems from three case studies from separate domains: research, education, and biomedical. We share the lessons learned and present 7 failure points to consider when designing a RAG system. The two key takeaways arising from our work are: 1) validation of a RAG system is only feasible during operation, and 2) the robustness of a RAG system evolves rather than designed in at the start. We conclude with a list of potential research directions on RAG systems for the software engineering community.},
+booktitle = {Proceedings of the IEEE/ACM 3rd International Conference on AI Engineering - Software Engineering for AI},
+pages = {194–199},
+numpages = {6},
+keywords = {retrieval augmented generation, RAG, SE4AI, case study},
+location = {Lisbon, Portugal},
+series = {CAIN '24}
+}
+
+@book{manning2008introduction,
+  author    = {Manning, Christopher D. and Raghavan, Prabhakar and Sch{\"u}tze, Hinrich},
+  title     = {Introduction to Information Retrieval},
+  publisher = {Cambridge University Press},
+  year      = {2008},
+  isbn      = {0521865719}
+}
+
+@misc{gao_2024_rag,
+      title={Retrieval-Augmented Generation for Large Language Models: A Survey}, 
+      author={Yunfan Gao and Yun Xiong and Xinyu Gao and Kangxiang Jia and Jinliu Pan and Yuxi Bi and Yi Dai and Jiawei Sun and Meng Wang and Haofen Wang},
+      year={2024},
+      eprint={2312.10997},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2312.10997}, 
+}
+
+@article{ram-2023-context,
+    title = {In-Context Retrieval-Augmented Language Models},
+    author = {Ram, Ori  and
+      Levine, Yoav  and
+      Dalmedigos, Itay  and
+      Muhlgay, Dor  and
+      Shashua, Amnon  and
+      Leyton-Brown, Kevin  and
+      Shoham, Yoav},
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {11},
+    year = {2023},
+    address = {Cambridge, MA},
+    publisher = {MIT Press},
+    url = {https://aclanthology.org/2023.tacl-1.75/},
+    doi = {10.1162/tacl_a_00605},
+    pages = {1316--1331},
+    abstract = "Retrieval-Augmented Language Modeling (RALM) methods, which condition a language model (LM) on relevant documents from a grounding corpus during generation, were shown to significantly improve language modeling performance. In addition, they can mitigate the problem of factually inaccurate text generation and provide natural source attribution mechanism. Existing RALM approaches focus on modifying the LM architecture in order to facilitate the incorporation of external information, significantly complicating deployment. This paper considers a simple alternative, which we dub In-Context RALM: leaving the LM architecture unchanged and prepending grounding documents to the input, without any further training of the LM. We show that In-Context RALM that builds on off-the-shelf general purpose retrievers provides surprisingly large LM gains across model sizes and diverse corpora. We also demonstrate that the document retrieval and ranking mechanism can be specialized to the RALM setting to further boost performance. We conclude that In-Context RALM has considerable potential to increase the prevalence of LM grounding, particularly in settings where a pretrained LM must be used without modification or even via API access.1"
+}
+
+@inproceedings{Karpukhin2020_DPR,
+    title = {Dense Passage Retrieval for Open-Domain Question Answering},
+    author = {Karpukhin, Vladimir  and
+      Oguz, Barlas  and
+      Min, Sewon  and
+      Lewis, Patrick  and
+      Wu, Ledell  and
+      Edunov, Sergey  and
+      Chen, Danqi  and
+      Yih, Wen-tau},
+    editor = {Webber, Bonnie  and
+      Cohn, Trevor  and
+      He, Yulan  and
+      Liu, Yang},
+    booktitle = {Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+    month = {november},
+    year = {2020},
+    address = {Online},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2020.emnlp-main.550/},
+    doi = {10.18653/v1/2020.emnlp-main.550},
+    pages = {6769--6781},
+    abstract = "Open-domain question answering relies on efficient passage retrieval to select candidate contexts, where traditional sparse vector space models, such as TF-IDF or BM25, are the de facto method. In this work, we show that retrieval can be practically implemented using dense representations alone, where embeddings are learned from a small number of questions and passages by a simple dual-encoder framework. When evaluated on a wide range of open-domain QA datasets, our dense retriever outperforms a strong Lucene-BM25 system greatly by 9{\%}-19{\%} absolute in terms of top-20 passage retrieval accuracy, and helps our end-to-end QA system establish new state-of-the-art on multiple open-domain QA benchmarks."
+}
+
+@article{Yoran2023MakingRL,
+  title={Making Retrieval-Augmented Language Models Robust to Irrelevant Context},
+  author={Ori Yoran and Tomer Wolfson and Ori Ram and Jonathan Berant},
+  booktitle={The Twelfth International Conference on Learning Representations},
+  year={2024},
+  url={https://openreview.net/forum?id=ZS4m74kZpH}
+}
+
+@inproceedings{shi-etal-2025-making,
+    title = {Making {RALM} Robust to Irrelevant Contexts via Layer Knowledge Guided Attention},
+    author = {Shi, Weijie  and
+      Chen, Hao  and
+      Li, Jiaming  and
+      Zhao, Yao  and
+      Zhang, Yazhong  and
+      Chen, Qijin  and
+      Zhang, Jipeng  and
+      Zhang, Ruiyuan  and
+      Zhu, Jia  and
+      Xu, Jiajie  and
+      Zhou, Xiaofang},
+    editor = {Che, Wanxiang  and
+      Nabende, Joyce  and
+      Shutova, Ekaterina  and
+      Pilehvar, Mohammad Taher},
+    booktitle = {Findings of the Association for Computational Linguistics: ACL 2025},
+    month = {july},
+    year = {2025},
+    address = {Vienna, Austria},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2025.findings-acl.188/},
+    doi = {10.18653/v1/2025.findings-acl.188},
+    pages = {3652--3668},
+    ISBN = {979-8-89176-256-5},
+    abstract = {Retrieval-augmented language models (RALMs) aim to incorporate external knowledge to address the issues of factual hallucination and knowledge obsolescence faced by large language models (LLMs). Inevitably, the retrieved passages based on similarity search may be irrelevant to the given question, and the aggregation of these passages can confuse the model to give a correct answer. To improve the performance of RALM in such conditions, we propose layer-knowledge guided attention for RALMs, which harnesses the layer-wise knowledge of LLMs to optimize per-layer attention on useful passages, making the model pay attention to the most relevant content and ignore irrelevant ones. Specifically, we first systematically study LLM{'}s attention patterns and their relationship with the accuracy of RALM responses, where middle-focus attentions play a crucial role in selectively gathering relevant information. Based on this, a layer-wise passage estimator leverages the varied knowledge encoded across LLM layers to assess not only passage relevance scores but also associated confidences. Finally, a relevance-aware passage fusion enables selective attention to relevant passages, mitigating distractibility and positional bias of causal attention. Experiments show that our method outperforms existing methods on RALM benchmarks.}
+}
+
+
+
+%%%%% --- ADvanced RAG ----
+
+@inproceedings{peng_large_2024,
+	location = {Singapore Singapore},
+	title = {Large Language Model based Long-tail Query Rewriting in Taobao Search},
+	isbn = {979-8-4007-0172-6},
+	url = {https://dl.acm.org/doi/10.1145/3589335.3648298},
+	doi = {10.1145/3589335.3648298},
+	eventtitle = {{WWW} '24: The {ACM} Web Conference 2024},
+	pages = {20--28},
+	booktitle = {Companion Proceedings of the {ACM} Web Conference 2024},
+	publisher = {{ACM}},
+	author = {Peng, Wenjun and Li, Guiyang and Jiang, Yue and Wang, Zilong and Ou, Dan and Zeng, Xiaoyi and Xu, Derong and Xu, Tong and Chen, Enhong},
+	urldate = {2026-03-17},
+	date = {2024-05-13},
+  year = {2024},
+  month = {may},
+	langid = {english},
+	file = {PDF:/Users/fregler001/Zotero/storage/BSI379GN/Peng et al. - 2024 - Large Language Model based Long-tail Query Rewriting in Taobao Search.pdf:application/pdf},
+}
+
+@article{zheng_take_2024,
+	title = {Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models},
+	abstract = {We present {STEP}-{BACK} {PROMPTING}, a simple prompting technique that enables {LLMs} to do abstractions to derive high-level concepts and ﬁrst principles from instances containing speciﬁc details. Using the concepts and principles to guide reasoning, {LLMs} signiﬁcantly improve their abilities in following a correct reasoning path towards the solution. We conduct experiments of {STEP}-{BACK} {PROMPTING} with {PaLM}-2L, {GPT}-4 and Llama2-70B models, and observe substantial performance gains on various challenging reasoning-intensive tasks including {STEM}, Knowledge {QA}, and Multi-Hop Reasoning. For instance, {STEP}-{BACK} {PROMPTING} improves {PaLM}-2L performance on {MMLU} (Physics and Chemistry) by 7\% and 11\% respectively, {TimeQA} by 27\%, and {MuSiQue} by 7\%.},
+	author = {Zheng, Huaixiu Steven and Mishra, Swaroop and Chen, Xinyun and Cheng, Heng-Tze and Chi, Ed H and Le, Quoc V and Zhou, Denny},
+	booktitle={The Twelfth International Conference on Learning Representations},
+  year={2024},
+  url={https://openreview.net/forum?id=3bq3jsvcQ1},
+	langid = {english},
+	file = {PDF:/Users/fregler001/Zotero/storage/BCI89RF4/Zheng et al. - 2024 - TAKE A STEP BACK EVOKING REASONING VIA AB- STRACTION IN LARGE LANGUAGE MODELS.pdf:application/pdf},
+}
+
+@misc{Ma2023_QueryRewrite,
+      title={Query Rewriting for Retrieval-Augmented Large Language Models}, 
+      author={Xinbei Ma and Yeyun Gong and Pengcheng He and Hai Zhao and Nan Duan},
+      year={2023},
+      eprint={2305.14283},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2305.14283}, 
+}
+
+@article{Liu2023_LostInTheMiddle,
+    title = {Lost in the Middle: How Language Models Use Long Contexts},
+    author = {Liu, Nelson F.  and
+      Lin, Kevin  and
+      Hewitt, John  and
+      Paranjape, Ashwin  and
+      Bevilacqua, Michele  and
+      Petroni, Fabio  and
+      Liang, Percy},
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {12},
+    year = {2024},
+    address = {Cambridge, MA},
+    publisher = {MIT Press},
+    url = {https://aclanthology.org/2024.tacl-1.9/},
+    doi = {10.1162/tacl_a_00638},
+    pages = {157--173},
+    abstract = "While recent language models have the ability to take long contexts as input, relatively little is known about how well they use longer context. We analyze the performance of language models on two tasks that require identifying relevant information in their input contexts: multi-document question answering and key-value retrieval. We find that performance can degrade significantly when changing the position of relevant information, indicating that current language models do not robustly make use of information in long input contexts. In particular, we observe that performance is often highest when relevant information occurs at the beginning or end of the input context, and significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models. Our analysis provides a better understanding of how language models use their input context and provides new evaluation protocols for future long-context language models."
+}
+
+@misc{Nogueira2019_PassageReRanking,
+      title={Passage Re-ranking with BERT}, 
+      author={Rodrigo Nogueira and Kyunghyun Cho},
+      year={2020},
+      eprint={1901.04085},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/1901.04085}, 
+}
+
+@misc{Li2023_Routing,
+      title={From Classification to Generation: Insights into Crosslingual Retrieval Augmented ICL}, 
+      author={Xiaoqian Li and Ercong Nie and Sheng Liang},
+      year={2023},
+      eprint={2311.06595},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2311.06595}, 
+}
+
+@inproceedings{Trivedi2022_IRCoT,
+    title = {Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions},
+    author = {Trivedi, Harsh  and
+      Balasubramanian, Niranjan  and
+      Khot, Tushar  and
+      Sabharwal, Ashish},
+    editor = {Rogers, Anna  and
+      Boyd-Graber, Jordan  and
+      Okazaki, Naoaki},
+    booktitle = {Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+    month = {july},
+    year = {2023},
+    address = {Toronto, Canada},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2023.acl-long.557/},
+    doi = {10.18653/v1/2023.acl-long.557},
+    pages = {10014--10037},
+    abstract = "Prompting-based large language models (LLMs) are surprisingly powerful at generating natural language reasoning steps or Chains-of-Thoughts (CoT) for multi-step question answering (QA). They struggle, however, when the necessary knowledge is either unavailable to the LLM or not up-to-date within its parameters. While using the question to retrieve relevant text from an external knowledge source helps LLMs, we observe that this one-step retrieve-and-read approach is insufficient for multi-step QA. Here, \textit{what to retrieve} depends on \textit{what has already been derived}, which in turn may depend on \textit{what was previously retrieved}. To address this, we propose IRCoT, a new approach for multi-step QA that interleaves retrieval with steps (sentences) in a CoT, guiding the retrieval with CoT and in turn using retrieved results to improve CoT. Using IRCoT with GPT3 substantially improves retrieval (up to 21 points) as well as downstream QA (up to 15 points) on four datasets: HotpotQA, 2WikiMultihopQA, MuSiQue, and IIRC. We observe similar substantial gains in out-of-distribution (OOD) settings as well as with much smaller models such as Flan-T5-large without additional training. IRCoT reduces model hallucination, resulting in factually more accurate CoT reasoning."
+}
+
+@inproceedings{Jiang2023_FLARE,
+    title = {Active Retrieval Augmented Generation},
+    author = {Jiang, Zhengbao  and
+      Xu, Frank  and
+      Gao, Luyu  and
+      Sun, Zhiqing  and
+      Liu, Qian  and
+      Dwivedi-Yu, Jane  and
+      Yang, Yiming  and
+      Callan, Jamie  and
+      Neubig, Graham},
+    editor = {Bouamor, Houda  and
+      Pino, Juan  and
+      Bali, Kalika},
+    booktitle = {Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing},
+    month = {dec},
+    year = {2023},
+    address = {Singapore},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2023.emnlp-main.495/},
+    doi = {10.18653/v1/2023.emnlp-main.495},
+    pages = {7969--7992},
+    abstract = "Despite the remarkable ability of large language models (LMs) to comprehend and generate language, they have a tendency to hallucinate and create factually inaccurate output. Augmenting LMs by retrieving information from external knowledge resources is one promising solution. Most existing retrieval augmented LMs employ a retrieve-and-generate setup that only retrieves information once based on the input. This is limiting, however, in more general scenarios involving generation of long texts, where continually gathering information throughout generation is essential. In this work, we provide a generalized view of active retrieval augmented generation, methods that actively decide when and what to retrieve across the course of the generation. We propose Forward-Looking Active REtrieval augmented generation (FLARE), a generic method which iteratively uses a prediction of the upcoming sentence to anticipate future content, which is then utilized as a query to retrieve relevant documents to regenerate the sentence if it contains low-confidence tokens. We test FLARE along with baselines comprehensively over 4 long-form knowledge-intensive generation tasks/datasets. FLARE achieves superior or competitive performance on all tasks, demonstrating the effectiveness of our method."
+}
+
+@inproceedings{Asai2023_SelfRAG,
+ author = {Asai, Akari and Wu, Zeqiu and Wang, Yizhong and Sil, Avi and Hajishirzi, Hannaneh },
+ booktitle = {International Conference on Learning Representations},
+ editor = {B. Kim and Y. Yue and S. Chaudhuri and K. Fragkiadaki and M. Khan and Y. Sun},
+ pages = {9112--9141},
+ title = {Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection},
+ url = {https://proceedings.iclr.cc/paper_files/paper/2024/file/25f7be9694d7b32d5cc670927b8091e1-Paper-Conference.pdf},
+ volume = {2024},
+ year = {2024}
+}
+
+
+%%%%% --- Retrival ----
+
+@article{Malkov2020_HNSW,
+author = {Malkov, Yu A. and Yashunin, D. A.},
+title = {Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs},
+year = {2020},
+issue_date = {April 2020},
+publisher = {IEEE Computer Society},
+address = {USA},
+volume = {42},
+number = {4},
+issn = {0162-8828},
+url = {https://doi.org/10.1109/TPAMI.2018.2889473},
+doi = {10.1109/TPAMI.2018.2889473},
+abstract = {We present a new approach for the approximate K-nearest neighbor search based on navigable small world graphs with controllable hierarchy (Hierarchical NSW, HNSW). The proposed solution is fully graph-based, without any need for additional search structures (typically used at the coarse search stage of the most proximity graph techniques). Hierarchical NSW incrementally builds a multi-layer structure consisting of a hierarchical set of proximity graphs (layers) for nested subsets of the stored elements. The maximum layer in which an element is present is selected randomly with an exponentially decaying probability distribution. This allows producing graphs similar to the previously studied Navigable Small World (NSW) structures while additionally having the links separated by their characteristic distance scales. Starting the search from the upper layer together with utilizing the scale separation boosts the performance compared to NSW and allows a logarithmic complexity scaling. Additional employment of a heuristic for selecting proximity graph neighbors significantly increases performance at high recall and in case of highly clustered data. Performance evaluation has demonstrated that the proposed general metric space search index is able to strongly outperform previous opensource state-of-the-art vector-only approaches. Similarity of the algorithm to the skip list structure allows straightforward balanced distributed implementation.},
+journal = {IEEE Trans. Pattern Anal. Mach. Intell.},
+month = apr,
+pages = {824–836},
+numpages = {13}
+}
+
+@inproceedings{Aumueller2020_ANN,
+  author       = {Martin Aum{\"{u}}ller and
+                  Erik Bernhardsson and
+                  Alexander John Faithfull},
+  editor       = {Christian Beecks and
+                  Felix Borutta and
+                  Peer Kr{\"{o}}ger and
+                  Thomas Seidl},
+  title        = {ANN-Benchmarks: {A} Benchmarking Tool for Approximate Nearest Neighbor
+                  Algorithms},
+  booktitle    = {Similarity Search and Applications - 10th International Conference,
+                  {SISAP} 2017, Munich, Germany, October 4-6, 2017, Proceedings},
+  series       = {Lecture Notes in Computer Science},
+  pages        = {34--49},
+  publisher    = {Springer},
+  year         = {2017},
+  url          = {https://doi.org/10.1007/978-3-319-68474-1\_3},
+  doi          = {10.1007/978-3-319-68474-1\_3},
+  timestamp    = {Tue, 19 Nov 2019 08:34:02 +0100},
+  biburl       = {https://dblp.org/rec/conf/sisap/AumullerBF17.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@ARTICLE{Johnson2021_FAISS,
+author={Johnson, Jeff and Douze, Matthijs and Jegou, Herve},
+journal={ IEEE Transactions on Big Data },
+title={{ Billion-Scale Similarity Search with GPUs }},
+year={2021},
+volume={7},
+number={03},
+ISSN={2332-7790},
+pages={535-547},
+abstract={ Similarity search finds application in database systems handling complex data such as images or videos, which are typically represented by high-dimensional features and require specific indexing structures. This paper tackles the problem of better utilizing GPUs for this task. While GPUs excel at data parallel tasks such as distance computation, prior approaches in this domain are bottlenecked by algorithms that expose less parallelism, such as k-min selection, or make poor use of the memory hierarchy. We propose a novel design for k-selection. We apply it in different similarity search scenarios, by optimizing brute-force, approximate and compressed-domain search based on product quantization. In all these setups, we outperform the state of the art by large margins. Our implementation operates at up to 55 percent of theoretical peak performance, enabling a nearest neighbor implementation that is 8.5 × faster than prior GPU state of the art. It enables the construction of a high accuracy k-NN graph on 95 million images from the Yfcc100M dataset in 35 minutes, and of a graph connecting 1 billion vectors in less than 12 hours on 4 Maxwell Titan X GPUs. We have open-sourced our approach for the sake of comparison and reproducibility. },
+keywords={Graphics processing units;Quantization (signal);Big Data;Indexing;Task analysis;Random access memory},
+doi={10.1109/TBDATA.2019.2921572},
+url = {https://doi.ieeecomputersociety.org/10.1109/TBDATA.2019.2921572},
+publisher={IEEE Computer Society},
+address={Los Alamitos, CA, USA},
+month=jul}
+
+
+
+%%% eVAL:
+
+@inproceedings{es2023ragas,
+    title = {{RAGA}s: Automated Evaluation of Retrieval Augmented Generation},
+    author = {Es, Shahul  and
+      James, Jithin  and
+      Espinosa Anke, Luis  and
+      Schockaert, Steven},
+    editor = {Aletras, Nikolaos  and
+      De Clercq, Orphee},
+    booktitle = {Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations},
+    month = {march},
+    year = {2024},
+    address = {St. Julians, Malta},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2024.eacl-demo.16/},
+    doi = {10.18653/v1/2024.eacl-demo.16},
+    pages = {150--158},
+    abstract = {We introduce RAGAs (Retrieval Augmented Generation Assessment), a framework for reference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAGAs is available at [https://github.com/explodinggradients/ragas]. RAG systems are composed of a retrieval and an LLM based generation module. They provide LLMs with knowledge from a reference textual database, enabling them to act as a natural language layer between a user and textual databases, thus reducing the risk of hallucinations. Evaluating RAG architectures is challenging due to several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages faithfully, and the quality of the generation itself. With RAGAs, we introduce a suite of metrics that can evaluate these different dimensions without relying on ground truth human annotations. We posit that such a framework can contribute crucially to faster evaluation cycles of RAG architectures, which is especially important given the fast adoption of LLMs.}
+}
+
+
+@misc{gan2025retrieval,
+      title={Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey}, 
+      author={Aoran Gan and Hao Yu and Kai Zhang and Qi Liu and Wenyu Yan and Zhenya Huang and Shiwei Tong and Guoping Hu},
+      year={2025},
+      eprint={2504.14891},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2504.14891}, 
+}

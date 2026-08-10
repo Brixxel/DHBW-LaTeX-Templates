@@ -1,0 +1,120 @@
+@inproceedings{Rust2021_Tokenizer,
+    title = {How Good is Your Tokenizer? On the Monolingual Performance of Multilingual Language Models},
+    author = {Rust, Phillip  and
+      Pfeiffer, Jonas  and
+      Vuli{\'c}, Ivan  and
+      Ruder, Sebastian  and
+      Gurevych, Iryna},
+    editor = {Zong, Chengqing  and
+      Xia, Fei  and
+      Li, Wenjie  and
+      Navigli, Roberto},
+    booktitle = {Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)},
+    month = {august},
+    year = {2021},
+    address = {Online},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2021.acl-long.243/},
+    doi = {10.18653/v1/2021.acl-long.243},
+    pages = {3118--3135},
+    abstract = "In this work, we provide a systematic and comprehensive empirical comparison of pretrained multilingual language models versus their monolingual counterparts with regard to their monolingual task performance. We study a set of nine typologically diverse languages with readily available pretrained monolingual models on a set of five diverse monolingual downstream tasks. We first aim to establish, via fair and controlled comparisons, if a gap between the multilingual and the corresponding monolingual representation of that language exists, and subsequently investigate the reason for any performance difference. To disentangle conflating factors, we train new monolingual models on the same data, with monolingually and multilingually trained tokenizers. We find that while the pretraining data size is an important factor, a designated monolingual tokenizer plays an equally important role in the downstream performance. Our results show that languages that are adequately represented in the multilingual model{'}s vocabulary exhibit negligible performance decreases over their monolingual counterparts. We further find that replacing the original multilingual tokenizer with the specialized monolingual tokenizer improves the downstream performance of the multilingual model for almost every task and language."
+}
+
+@inproceedings{Bostrom2020_BPE,
+    title = {Byte Pair Encoding is Suboptimal for Language Model Pretraining},
+    author = {Bostrom, Kaj  and
+      Durrett, Greg},
+    editor = {Cohn, Trevor  and
+      He, Yulan  and
+      Liu, Yang},
+    booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2020},
+    month = {november},
+    year = {2020},
+    address = {Online},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2020.findings-emnlp.414/},
+    doi = {10.18653/v1/2020.findings-emnlp.414},
+    pages = {4617--4624},
+    abstract = "The success of pretrained transformer language models (LMs) in natural language processing has led to a wide range of pretraining setups. In particular, these models employ a variety of subword tokenization methods, most notably byte-pair encoding (BPE) (Sennrich et al., 2016; Gage, 1994), the WordPiece method (Schuster and Nakajima, 2012), and unigram language modeling (Kudo, 2018), to segment text. However, to the best of our knowledge, the literature does not contain a direct evaluation of the impact of tokenization on language model pretraining. We analyze differences between BPE and unigram LM tokenization, finding that the latter method recovers subword units that align more closely with morphology and avoids problems stemming from BPE{'}s greedy construction procedure. We then compare the fine-tuned task performance of identical transformer masked language models pretrained with these tokenizations. Across downstream tasks and two languages (English and Japanese), we find that the unigram LM tokenization method matches or outperforms BPE. We hope that developers of future pretrained LMs will consider adopting the unigram LM method over the more prevalent BPE."
+}
+
+@inproceedings{moroni2025_optimizing,
+    title = {Optimizing {LLM}s for {I}talian: Reducing Token Fertility and Enhancing Efficiency Through Vocabulary Adaptation},
+    author = {Moroni, Luca  and
+      Puccetti, Giovanni  and
+      Huguet Cabot, Pere-Llu{\'i}s  and
+      Bejgu, Andrei Stefan  and
+      Miaschi, Alessio  and
+      Barba, Edoardo  and
+      Dell{'}Orletta, Felice  and
+      Esuli, Andrea  and
+      Navigli, Roberto},
+    editor = {Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu},
+    booktitle = {Findings of the Association for Computational Linguistics: NAACL 2025},
+    month = {april},
+    year = {2025},
+    address = {Albuquerque, New Mexico},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2025.findings-naacl.371/},
+    doi = {10.18653/v1/2025.findings-naacl.371},
+    pages = {6661--6675},
+    ISBN = {979-8-89176-195-7},
+    abstract = {The number of pretrained Large Language Models (LLMs) is increasing steadily, though the majority are designed predominantly for the English language. While state-of-the-art LLMs can handle other languages, due to language contamination or some degree of multilingual pretraining data, they are not optimized for non-English languages, leading to inefficient encoding (high token ``fertility'') and slower inference speed.In this work, we thoroughly compare a variety of vocabulary adaptation techniques for optimizing English LLMs for the Italian language, and put forward Semantic Alignment Vocabulary Adaptation (SAVA), a novel method that leverages neural mapping for vocabulary substitution. SAVA achieves competitive performance across multiple downstream tasks, enhancing grounded alignment strategies. We adapt two LLMs: Mistral-7B-v0.1, reducing token fertility by 25{\%}, and Llama-3.1-8B, optimizing the vocabulary and reducing the number of parameters by 1 billion. We show that, following the adaptation of the vocabulary, these models can recover their performance with a relatively limited stage of continual training on the target language. Finally, we test the capabilities of the adapted models on various multi-choice and generative tasks.}
+}
+
+@inproceedings{sennrich_neural_2016,
+    title = {Neural Machine Translation of Rare Words with Subword Units},
+    author = {Sennrich, Rico  and
+      Haddow, Barry  and
+      Birch, Alexandra},
+    editor = {Erk, Katrin  and
+      Smith, Noah A.},
+    booktitle = {Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+    month = {august},
+    year = {2016},
+    address = {Berlin, Germany},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/P16-1162/},
+    doi = {10.18653/v1/P16-1162},
+    pages = {1715--1725}
+}
+
+
+@inproceedings{Kudo_SentencePiece_2018,
+    title = {SentencePiece: A simple and language independent subword tokenizer and detokenizer for Neural Text Processing},
+    author = {Kudo, Taku  and
+      Richardson, John},
+    editor = {Blanco, Eduardo  and
+      Lu, Wei},
+    booktitle = {Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing: System Demonstrations},
+    month = {november},
+    year = {2018},
+    address = {Brussels, Belgium},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/D18-2012/},
+    doi = {10.18653/v1/D18-2012},
+    pages = {66--71},
+    abstract = "This paper describes SentencePiece, a language-independent subword tokenizer and detokenizer designed for Neural-based text processing, including Neural Machine Translation. It provides open-source C++ and Python implementations for subword units. While existing subword segmentation tools assume that the input is pre-tokenized into word sequences, SentencePiece can train subword models directly from raw sentences, which allows us to make a purely end-to-end and language independent system. We perform a validation experiment of NMT on English-Japanese machine translation, and find that it is possible to achieve comparable accuracy to direct subword training from raw sentences. We also compare the performance of subword training and segmentation with various configurations. SentencePiece is available under the Apache 2 license at \url{https://github.com/google/sentencepiece}."
+}
+
+@article{Bojanowski_FastText_2017,
+    title = {Enriching Word Vectors with Subword Information},
+    author = {Bojanowski, Piotr  and
+      Grave, Edouard  and
+      Joulin, Armand  and
+      Mikolov, Tomas},
+    editor = {Lee, Lillian  and
+      Johnson, Mark  and
+      Toutanova, Kristina},
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {5},
+    year = {2017},
+    address = {Cambridge, MA},
+    publisher = {MIT Press},
+    url = {https://aclanthology.org/Q17-1010/},
+    doi = {10.1162/tacl_a_00051},
+    pages = {135--146},
+    abstract = "Continuous word representations, trained on large unlabeled corpora are useful for many natural language processing tasks. Popular models that learn such representations ignore the morphology of words, by assigning a distinct vector to each word. This is a limitation, especially for languages with large vocabularies and many rare words. In this paper, we propose a new approach based on the skipgram model, where each word is represented as a bag of character n-grams. A vector representation is associated to each character n-gram; words being represented as the sum of these representations. Our method is fast, allowing to train models on large corpora quickly and allows us to compute word representations for words that did not appear in the training data. We evaluate our word representations on nine different languages, both on word similarity and analogy tasks. By comparing to recently proposed morphological word representations, we show that our vectors achieve state-of-the-art performance on these tasks."
+}

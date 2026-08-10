@@ -1,0 +1,331 @@
+\section{Retrieval-Augmented Generation}
+\label{sec:rag}
+
+Historically, vector embeddings were primarily utilized for discriminative \ac{NLP} tasks, such as text classification or clustering \cite{Jurafsky2024_SLP,Mikolov2013,devlin_2019_bert}. However, with the recent paradigm shift towards \ac{GenAI}, \acp{LLM} have become the focal point of modern \ac{NLP} \cite{zhao2026surveylargelanguagemodels}.
+
+These generative models fundamentally require a mechanism for accessing and utilizing factual knowledge to produce informed responses. This knowledge acquisition is typically classified into the two paradigms parametric and non-parametric memory \cite{lewis_rag_2020}. Parametric knowledge is implicitly learned within the model's internal weights $\theta$ during training \cite{petroni_2019_language}. To update this knowledge or adapt the model to a specialized domain, the model must undergo continuous training or fine-tuning. However, this parametric approach is computationally expensive, inflexible and prone to hallucination \cite{Ji_2023_hallucination}. 
+
+On the other hand, non-parametric memory explicitly provides knowledge within the model's input context. \ac{RAG} operates on this second paradigm by dynamically retrieving relevant texts from an external knowledge base and integrating them into the generation process visualized in Figure~\ref{fig:rag_basic}. As \citet{barnett2024seven} note, \ac{RAG} provides a robust alternative to fine-tuning by relying on \acp{LLM} exclusively for the synthesis of answers based on explicitly retrieved knowledge. This allows not only to mitigate hallucinations but also to access up-to-date information without retraining \cite{luketina2025using, lewis_rag_2020, gao_2024_rag}.
+
+The core idea of retrieving relevant documents to satisfy an information need is not new. It is a fundamental problem that has been extensively studied in the field of \acf{IR} \cite{manning2008introduction}. At an abstract level, \ac{RAG} utilizes the same workflow as classical \ac{IR} system. An offline indexing phase, in which the knowledge corpus $\mathcal{C}$ is processed and structured for efficient retrieval and an online phase, in which the system dynamically fetches relevant information to ground the generated response for a user query $q$ \cite{gao_2024_rag}. The primary retrieval objective remains identical to classical \ac{IR}, identifying a subset of documents $\mathcal{C}_{q,k}$ from a massive corpus $\mathcal{C}$ that optimally satisfies the given information need $q$. However, unlike traditional \ac{IR} where the end-user is human, the \emph{consumer} of the retrieved documents in a \ac{RAG} system is an \ac{LLM}. This paradigm shift critically alters the retrieval requirements \cite{gao_2024_rag}. While human users can easily skim a list of search results and ignore irrelevant hits, generative models possess finite context windows and are highly susceptible to reasoning errors when distracted by noisy information \cite{Liu2023_LostInTheMiddle}. Consequently, \ac{RAG} retrieval must prioritize precision over broad recall, strictly tailoring the fetched context to the technical constraints of the downstream \ac{LLM} \cite{gao_2024_rag, Yoran2023MakingRL}.
+
+
+% NOTE: Difference between Information Retrival and Retrival for RAG / Benkel (2025, JKU Linz) as src for RAG vs. Finetuning
+
+% Später: Fundamentally, any RAG system relies on two distinct, sequential workflows, visualized in Figure [ref] \cite{gao_2024_rag}:
+
+%\begin{enumerate}
+%    \item \textbf{Offline Indexing:} A prerequisite step in which a raw text corpus is segmented into discrete, semantically coherent chunks. These chunks are transformed into vector representations using an embedding model (cf. Section~\ref{sec:vectorization}) and stored within a specialized database (a vector database, the document index).
+%    \item \textbf{Online Generation:} The run-time process where a user query is encoded into the same vector space. The system retrieves the most relevant document chunks from the index and supplies them to the generator model alongside the original query to synthesize the final response.
+%\end{enumerate}
+
+\begin{figure}[htbp]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tikzpicture}[
+        node distance=1.2cm and 1.5cm,    
+        % Boxen-Stile
+        process/.style={draw, rectangle, rounded corners, minimum width=2.6cm, minimum height=1.4cm, text centered, align=center, font=\sffamily, fill=blue!5, draw=blue!60, thick},
+        generator/.style={draw, rectangle, rounded corners, minimum width=2.6cm, minimum height=1.4cm, text centered, align=center, font=\sffamily, fill=purple!5, draw=purple!50, thick},
+        db/.style={draw, cylinder, shape border rotate=90, aspect=0.25, minimum width=2.2cm, minimum height=2.8cm, text centered, align=center, font=\sffamily, fill=orange!10, draw=orange!80, thick},
+        user/.style={text centered, align=center, font=\sffamily\bfseries}, 
+        mips/.style={draw, rectangle, minimum width=2.0cm, minimum height=1.4cm, text centered, align=center, font=\sffamily\bfseries, fill=yellow!10, draw=yellow!80!orange, thick},
+        concat/.style={draw, circle, inner sep=2pt, minimum size=0.6cm, font=\sffamily\bfseries, fill=gray!10, draw=gray!60, thick},  
+        % Linien- und Textstile
+        arrow/.style={-Latex, thick, draw=gray!80!black},
+        dashed_arrow/.style={-Latex, thick, dashed, draw=gray!80!black},
+        annotation/.style={font=\footnotesize\itshape\color{gray!80!black}},
+        groupbox/.style={draw, rectangle, rounded corners, dashed, inner xsep=15pt, inner ysep=15pt, thick}
+    ]
+
+    % ==========================================
+    % 1. User Input (Links)
+    % ==========================================
+    \node[user] (user_in) {\faUser\\ User};
+    \node (query) [below=0.4cm of user_in, font=\sffamily\bfseries, align=center] {Query\\ \ragmath{$q$}};
+
+    % ==========================================
+    % 2. Retriever Pipeline (Mitte)
+    % ==========================================
+    % Notation geändert: \Theta(\cdot) ohne Parameter
+    \node[process] (q_enc) [right=1.2cm of query] {Query Encoder\\ \ragmath{$\Phi(\cdot)$}};
+    \node[mips] (mips) [right=1.5cm of q_enc] {Search\\ (MIPS)};
+    \node[db] (index) [above=1.2cm of mips] {Doc Index\\ \ragmath{$\mathcal{C}$}};
+
+
+    % ==========================================
+    % 3. Konkatenation & Generator (Rechts)
+    % ==========================================
+    % \oplus weiter nach rechts gerückt (mehr Platz für Top-K), näher an den Generator
+    \node[concat] (plus) [right=2.6cm of mips] {$\oplus$};
+    \node[generator] (gen) [right=0.5cm of plus] {\textcolor{red!80!black}{\textbf{Generator}} \ragmath{$p_\theta$}};
+    
+    % Output-Node etwas weiter nach rechts, damit der Text darunter 100% Platz hat
+    \node (output) [right=2.4cm of gen, font=\sffamily\bfseries, align=center] {Output\\ \ragmath{$y$}};
+    \node[user] (user_out) [above=0.4cm of output] {\faUser\\ User};
+
+    % ==========================================
+    % Pfeilverbindungen
+    % ==========================================
+    \draw[arrow] (user_in) -- (query);
+    \draw[arrow] (query) -- (q_enc);
+    \draw[arrow] (q_enc) -- node[above, annotation] {\ragmath{$\Phi(q)$}} (mips);
+    
+    % Text links vom Pfeil, "Embeddings" -> "Representations", da es auch TF-IDF sein kann
+    \draw[dashed_arrow] (index) -- node[left, annotation, align=center] {Representations\\ \ragmath{$\Phi(c)$}} (mips);
+    
+    % Viel Platz für "Top-k Chunks" dank verschobenem \oplus
+    \draw[arrow] (mips) -- node[above, annotation, align=center, yshift=0.1cm, xshift=0.5cm] {Top-$k$ Chunks\\ \ragmath{$\mathcal{C}_{q,k}$}} (plus);
+
+    % Pfeil für Original Query geht weiterhin tief unten durch
+    \draw[arrow, rounded corners] (query.south) -- ++(0,-2.4) -| node[near start, above, annotation] {Original Query \ragmath{$q$}} (plus.south);
+
+    % "Context" wurde hier entfernt, Pfeil geht direkt rein
+    \draw[arrow] (plus) -- (gen);
+
+    % Text steht nun UNTER dem Pfeil (node[below]), ragt nicht in die Boxen rein
+    \draw[arrow] (gen) -- node[below, annotation, align=center, yshift=-0.1cm] {Probability\\ \ragmath{$p(y|[\mathcal{C}_{q,k} \oplus q])$}} (output);
+    \draw[arrow] (output) -- (user_out);
+
+    % ==========================================
+    % Hintergrund-Box für den Retriever
+    % ==========================================
+    \begin{scope}[on background layer]
+        \node[groupbox, draw=red!50, fill=red!5, fit=(q_enc) (mips) (index)] (retriever_box) {};
+        % Parameter \eta aus der Wahrscheinlichkeit entfernt
+        \node[anchor=south east, font=\sffamily\bfseries\color{red!80!black}] at (retriever_box.north east) {Retriever \ragmath{$p_\eta(c|q)$}};
+    \end{scope}
+
+    \end{tikzpicture}%
+    }
+    \caption[Core architecture of an In-Context RAG system.]{Core architecture of a modern standard In-Context \ac{RAG} system. Retrieved documents ($\mathcal{C}_{q,k}$) are explicitly concatenated ($\oplus$) with the original query ($q$) and passed to the generator as an augmented context window. (Own Illustration)}
+    \label{fig:rag_basic}
+\end{figure}
+
+
+
+% ============================================================
+% 3.1 FORMALIZING THE RAG PARADIGM
+% ============================================================
+\subsection{Formalizing the RAG Paradigm}
+\label{sec:rag_formal}
+
+\citet{lewis_rag_2020} initially formalized the theoretical foundation of the \ac{RAG} framework\footnote{To ensure consistency with notation established in Section~\ref{sec:embeddings}, their original notation will be adjusted here.}. The user's request to the \ac{LLM}, the prompt, is referred to as the query $q \in \mathcal{Q} \subset \mathcal{X}$. The external knowledge corpus $\mathcal{C}_{\text{info}}$ is segmented into discrete chunks, with each chunk representing a discrete information unit $c \in \mathcal{C}$ \cite{Karpukhin2020_DPR, gao_2024_rag}. Fundamentally, a \ac{RAG}-model is actually a composition, or orchestration, of two distinct probabilistic models:
+
+\begin{enumerate}
+    \item \textbf{The Retriever} $p_\eta(c \mid q)$: A model parameterized by $\eta$ that returns a probability distribution over text chunks $c \in \mathcal{C}$ given the query $q$. In practice, this returns a top-$k$ truncated set of candidates, denoted as $\mathcal{C}_{q,k}$ \cite{lewis_rag_2020, Karpukhin2020_DPR}.
+    \item \textbf{The Generator} $p_\theta(y_i \mid q, c, y_{1:i-1})$: An autoregressive \ac{LLM} parameterized by $\theta$ that computes the probability of generating the next token $y_i$ conditioned on the original query $q$, one specific retrieved chunk $c$ and the previously generated tokens $y_{1:i-1}$ \cite{lewis_rag_2020}. 
+\end{enumerate}
+
+The probability of generating the full target sequence $y = (y_1, \dots, y_m)$ is the product of these individual token probabilities. \citet{lewis_rag_2020} introduced two primary methods to combine the retriever and the generator, treating the retrieved chunk $c$ as a latent variable that must be marginalized out over the candidate set $\mathcal{C}_{q,k}$.
+
+\paragraph{RAG-Sequence Model.} 
+This model assumes that a single retrieved chunk $c$ provides the context for generating the entire target sequence $y$. Therefore, the total probability is the sum over all retrieved chunks \cite{lewis_rag_2020}:
+\begin{equation}
+    \mathbb{P}_{\text{RAG-Seq}}(y \mid q) = \sum_{c \in \mathcal{C}_{q,k}} p_\eta(c \mid q) \prod_{i=1}^m p_\theta(y_i \mid q, c, y_{1:i-1})
+\end{equation}
+
+\paragraph{RAG-Token Model.} 
+This model allows the generator to draw upon a different chunk for every single token it produces, marginalizing the latent variable $c$ at the token level rather than the sequence level \cite{lewis_rag_2020}:
+\begin{equation}
+    \mathbb{P}_{\text{RAG-Tok}}(y \mid q) = \prod_{i=1}^m \sum_{c \in \mathcal{C}_{q,k}} p_\eta(c \mid q) \, p_\theta(y_i \mid q, c, y_{1:i-1})
+\end{equation}
+
+
+% ============================================================
+% 3.2 MODERN IN-CONTEXT RAG
+% ============================================================
+\subsection{Modern In-Context RAG}
+\label{sec:rag_modern}
+
+Although this first formalization of \ac{RAG} is a roubust probabilistic framework, it is computationally expensive and complex to implement, especially during inference. The need to compute probabilities over multiple retrieved chunks at every generation step leads to significant overhead. As a result, the contemporary standard for \ac{RAG}, often referred to as \emph{Standard \ac{RAG}} or \emph{In-Context \ac{RAG}} or \emph{Naive \ac{RAG}}, has evolved to simplify this process by integrating the retrieved knowledge directly into the prompt without explicit marginalization \cite{gao_2024_rag}. These approaches concatenate the top-$k$ retrieved chunks into a single context string $[\mathcal{C}_{q,k} \oplus q]$. The generation probability
+
+\begin{equation}
+    \mathbb{P}_{\text{In-Context}}(y \mid q, \mathcal{C}_{q,k}) = \prod_{i=1}^m p_\theta(y_i \mid [\mathcal{C}_{q,k} \oplus q], y_{1:i-1})
+\end{equation}
+
+collapses into a standard autoregressive language modeling objective, conditioned directly on the prompt \cite{ram-2023-context}. This simplification clearly shows that the quality of the generative output depends largely on the relevance and quality of the candidate set $\mathcal{C}_{q,k}$. If the retriever $p_\eta(c \mid q)$ is unable to find the correct information, the generator $p_\theta$ cannot compensate for this effectively, which identifies the retrieval process as a significant bottleneck \cite{barnett2024seven, Yoran2023MakingRL, shi-etal-2025-making}.
+
+
+
+% ============================================================
+% 3.3 THE RETRIEVAL ENGINE AND ADVANCED PIPELINES
+% ============================================================
+\subsection{The Retrieval Engine and Advanced Pipelines}
+\label{sec:rag_pipeline}
+
+To satisfy this strict precision constraints imposed by the downstream generator, the retrieval engine $p_\eta$ is typically instantiated as a dense bi-encoder \cite{Karpukhin2020_DPR}. Connecting back to the embedding theory established in Section~\ref{sec:embeddings}, the retriver leverages a parameterized embedding function $\phi_\eta$ to independently map both the user query $q \in \mathcal{Q}$ and all corpus chunks $c \in \mathcal{C}$ into the shared continuous representation space $\mathcal{Z}$. The retrieval probability of an chunk $p_\eta(c \mid q)$ is then derived by applying a softmax function over the geometric similarities between these vectors, typically computed via \ac{MIPS}. Thus, the likelihood of retrieving a specific chunk is proportional to the exponential of its cosine similarity to the query:
+
+\begin{equation}
+    p_\eta(c \mid q) \propto \exp\bigl(\text{sim}(\phi_\eta(q), \phi_\eta(c))\bigr)
+\end{equation}
+
+Given the critical role of this geometric retrieval step in the overall \ac{RAG} performance, various architectural optimisations have been proposed to enhance both retrieval quality and computational efficiency. As illustrated in Figure~\ref{fig:rag_advanced}, such \emph{Advanced \ac{RAG}} systems extend the basic paradigm by introducing specialized pre- and post-processing modules to refine the information flow before and after the vector search \cite{barnett2024seven, gao_2024_rag}. 
+
+
+\begin{figure}[htbp]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tikzpicture}[
+        % Boxen-Stile
+        process/.style={draw, rectangle, rounded corners, minimum width=2.6cm, minimum height=1.4cm, text centered, align=center, font=\sffamily, fill=blue!5, draw=blue!60, thick},
+        generator/.style={draw, rectangle, rounded corners, minimum width=2.6cm, minimum height=1.4cm, text centered, align=center, font=\sffamily, fill=purple!5, draw=purple!50, thick},
+        db/.style={draw, cylinder, shape border rotate=90, aspect=0.25, minimum width=2.2cm, minimum height=2.8cm, text centered, align=center, font=\sffamily, fill=orange!10, draw=orange!80, thick},
+        user/.style={text centered, align=center, font=\sffamily\bfseries},
+        mips/.style={draw, rectangle, minimum width=2.0cm, minimum height=1.4cm, text centered, align=center, font=\sffamily\bfseries, fill=yellow!10, draw=yellow!80!orange, thick},
+        concat/.style={draw, circle, inner sep=2pt, minimum size=0.6cm, font=\sffamily\bfseries, fill=gray!10, draw=gray!60, thick},
+        % Linien- und Textstile
+        arrow/.style={-Latex, thick, draw=gray!80!black},
+        dashed_arrow/.style={-Latex, thick, dashed, draw=gray!80!black},
+        annotation/.style={font=\footnotesize\itshape\color{gray!80!black}},
+        groupbox/.style={draw, rectangle, rounded corners, dashed, thick} 
+    ]
+
+    % ==========================================
+    % 1. OFFLINE INDEXING (Obere Reihe: y = 0)
+    % ==========================================
+    \node[process, fill=gray!10, draw=gray!50] (docs) at (-1.5, 0) {Raw Documents};
+    % X-Abstand wurde von 4.0 auf 4.5 erhöht für mehr Platz!
+    \node[process] (chunker) at (2.5, 0) {Chunker};
+    \node[process] (embedder) at (7.5, 0) {Document Embedder\\ \ragmath{$\phi_\eta(\cdot)$}};
+    \node[db] (database) at (13.5, 0) {Document Index\\ \ragmath{$\mathcal{C}$}};
+
+    \draw[arrow] (docs) -- node[above, annotation] {Text} (chunker);
+    \draw[arrow] (chunker) -- node[above, annotation] {Chunks \ragmath{$c$}} (embedder);
+    \draw[arrow] (embedder) -- node[above, annotation] {Vectors \ragmath{$\phi_\eta(c)$}} (database);
+
+    % ==========================================
+    % 2. ONLINE GENERATION - QUERY (Mittlere Reihe: y = -5.5)
+    % ==========================================
+    \node[user] (user_in) at (-2.5, -5.5) {\faUser\\ User};
+    \node (query) at (0, -5.5) [font=\sffamily\bfseries, align=center] {Query\\ \ragmath{$q$}};
+    \node[process] (rewriter) at (3.5, -5.5) {Query Rewriter};
+    \node[process] (q_encoder) at (9, -5.5) {Query Embedder\\ \ragmath{$\phi_\eta(\cdot)$}};
+    \node[mips] (mips) at (13.5, -5.5) {Search\\ (MIPS)};
+
+    \draw[arrow] (user_in) -- (query);
+    \draw[arrow] (query) -- (rewriter);
+    \draw[arrow] (rewriter) -- node[above, annotation] {Optimised \ragmath{$q'$}} (q_encoder);
+    \draw[arrow] (q_encoder) -- node[above, annotation] {\ragmath{$\phi_\eta(q')$}} (mips);
+
+    % Verbindung von DB zu MIPS (Text links!)
+    \draw[dashed_arrow] (database) -- node[left, annotation] {Embeddings \ragmath{$\phi_\eta(c)$}} (mips);
+
+    % ==========================================
+    % 3. ONLINE GENERATION - OUTPUT (Untere Reihe: y = -8.5)
+    % ==========================================
+    \node[process] (reranker) at (13.5, -8.5) {Re-Ranker};
+    \node[concat] (plus) at (9, -8.5) {$\oplus$};
+    \node[generator] (generator) at (4.5, -8.5) {\textcolor{red!80!black}{\textbf{Generator}} \ragmath{$p_\theta$}};
+    \node (output) at (0, -8.5) [font=\sffamily\bfseries, align=center] {Output\\ \ragmath{$y$}};
+
+    % Pfeile laufen von rechts nach links (Text bei Broad Candidates links!)
+    \draw[arrow] (mips) -- node[left, annotation] {Broad Candidates} (reranker);
+    \draw[arrow] (reranker) -- node[above, annotation] {Ranked \ragmath{$\mathcal{C}_{q,k}$}} (plus);
+    \draw[arrow] (plus) -- node[above, annotation] {Context} (generator);
+    \draw[arrow] (generator) -- node[above, annotation] {\ragmath{$p(y|[\mathcal{C}_{q,k} \oplus q])$}} (output);
+
+    % ==========================================
+    % 4. RETURN ZUM USER & SKIP CONNECTION
+    % ==========================================
+    % Output geht nach links und dann hoch zum originalen User
+    \draw[arrow, rounded corners] (output.west) -- (-2.5, -8.5) -- (user_in.south);
+    
+    % Skip Connection verläuft sicher zwischen den Reihen bei y = -7.0
+    \draw[arrow, rounded corners] (query.south) -- (0, -7.0) -- node[above, annotation] {Original Query \ragmath{$q$}} (9, -7.0) -- (plus.north);
+
+    % ==========================================
+    % 5. BACKGROUND BOXES
+    % ==========================================
+    \coordinate (box_left) at (-3.5, 0);
+    \coordinate (box_right) at (15.2, 0); % Rechts erweitert für Datenbank-Zylinder
+    
+    \coordinate (idx_top) at (0, 2.0);
+    \coordinate (idx_bot) at (0, -1.8); % Klare Trennung zwischen Boxen
+    
+    \coordinate (gen_top) at (0, -3.5); % Klare Trennung zwischen Boxen
+    \coordinate (gen_bot) at (0, -9.6); % Tief genug für den Return-Pfeil
+
+    \begin{scope}[on background layer]
+        % Offline Box
+        \node[groupbox, draw=orange!60, fill=orange!5, fit=(box_left |- idx_top) (box_right |- idx_bot)] (box_index) {};
+        \node[anchor=south west, yshift=0.15cm, font=\sffamily\bfseries\color{orange!80!black}] at (box_index.north west) {Offline Indexing Process};
+
+        % Online Box
+        \node[groupbox, draw=blue!60, fill=blue!2, fit=(box_left |- gen_top) (box_right |- gen_bot)] (box_gen) {};
+        \node[anchor=south west, yshift=0.15cm, font=\sffamily\bfseries\color{blue!80!black}] at (box_gen.north west) {Online Generation \& Query Process};
+        
+        % Retriever Sub-Box 
+        \node[groupbox, draw=red!50, fill=red!5, inner sep=10pt, fit=(q_encoder) (mips)] (retriever_box) {};
+        \node[anchor=south west, yshift=0.1cm, font=\footnotesize\sffamily\bfseries\color{red!80!black}] at (retriever_box.north west) {Retriever \ragmath{$p_\eta(c|q')$}};
+    \end{scope}
+    \end{tikzpicture}%
+    }
+    \caption[Architecture of an Advanced \acs{RAG} Pipeline.]{The Advanced \acs{RAG} Pipeline incorporating query rewriting for vector optimisation and cross-encoder re-ranking for precise context extraction. (Own illustration in adaptation of \cite{gao_2024_rag})}
+    \label{fig:rag_advanced}
+\end{figure}
+
+The pre-retrieval process optimises both the document index and the user query prior to the vector search. Indexing quality is enhanced by balancing chunk granularity and appending metadata for structural filtering \cite{gao_2024_rag}. Meanwhile, initial user queries $q$ are often ambiguous or incomplete. They are refined via rewriting, expansion, or transformation into an optimised representation $q'$ that is better suited for semantic retrieval \cite{gao_2024_rag,Ma2023_QueryRewrite,peng_large_2024,zheng_take_2024}.
+
+The post-retrieval process curates the retrieved candidate set $\mathcal{C}_{q,k}$ before generation. Feeding uncurated documents directly into \acp{LLM} causes information overload and exacerbates the \emph{lost-in-the-middle} effect, where models ignore information buried in the center of the prompt \cite{gao_2024_rag,Liu2023_LostInTheMiddle}. To mitigate this, context compression and reranking are applied. Reranking employs computationally heavier Cross-Encoders to re-evaluate the broad candidate set, prioritizing and relocating the most relevant documents to the edges of the context window, where the generator's attention peaks \cite{Nogueira2019_PassageReRanking}.
+
+Beyond these sequential pre- and post-processing steps, the design space has recently evolved towards \emph{Modular \ac{RAG}} architectures. This paradigm transcends fixed, chain-like pipelines by introducing flexible, interchangeable modules \cite{gao_2024_rag}. Approaches such as dynamic routing across diverse data sources \cite{Li2023_Routing}, multi-hop retrieval for complex reasoning \cite{Trivedi2022_IRCoT} and active relevance feedback loops allow the system to adaptively control the retrieval flow based on the specific query context, further extending the capabilities and robustness of modern \ac{RAG} architectures \cite{Jiang2023_FLARE,Asai2023_SelfRAG,gao_2024_rag}.
+
+
+
+% ============================================================
+% 3.4 EVALUATION OF RAG SYSTEMS
+% ============================================================
+\subsection{Evaluation of \acs{RAG} Systems}
+\label{sec:rag_evaluation}
+
+% While online evaluations with human domain experts provide high ecological validity, they are resource-intensive and difficult to replicate. Consequently, the offline evaluation of \ac{IR} systems traditionally relies on the Cranfield paradigm. As detailed by \citet{sanderson2010test}, this established methodology guarantees deterministic and highly scalable comparisons by utilizing a standardised test collection. Such a collection comprises three fundamental components: a document corpus, a representative set of user information needs (queries) and corresponding relevance judgments (qrels) that map relevant documents to each query.
+
+As the modular architecture of \ac{RAG} suggests, system evaluation ranges from holistic end-to-end perspectives to granular component-level assessments. Holistic approaches evaluate the final generated response $y$, often employing traditional reference-based string-matching metrics such as BLEU and ROUGE, or modern \ac{LLM}-as-a-judge frameworks \cite{gan2025retrieval,gao_2024_rag,es2023ragas}. However, these end-to-end measures fail to provide actionable insights into the specific contributions of the underlying subsystems \cite{gao_2024_rag}. To effectively diagnose the root cause of a system failure, distinguishing whether the generator $p_\theta$ hallucinated despite being provided with correct context, or whether the retriever $p_\eta$ fundamentally failed to find the necessary documents, evaluation frameworks must strictly decouple generation quality from retrieval quality \cite{barnett2024seven,es2023ragas}. Operating under the premise that accurate generation is strictly bounded by accurate retrieval, this thesis focuses entirely on evaluating the retrieval engine.
+
+As established, the retrieval step can be framed as a classical \ac{IR} problem, allowing for the direct application of \ac{IR}-ranking metrics to the top-$k$ candidate set $\mathcal{C}_{q,k}$. With $\mathcal{Q}$ denoting the set of all queries and $\mathcal{R}_q$ representing the set of ground-truth relevant documents for a specific query $q \in \mathcal{Q}$, one of the simplest measurements is Precision@k. It captures the fraction of the retrieved top-$k$ relevant documents\footnote{Crucially, the definition of this relevant set $\mathcal{R}_q$ is highly domain-dependent. As \citet{van_opijnen_concept_2017} emphasize for \ac{LIR}, relevance extends far beyond simple topical overlap. In legal and tax contexts, a document's relevance is multidimensional, incorporating hierarchical authority e.g., a high-court ruling outweighs a lower-court ruling, temporal validity and dense cross-referential relationships \cite{van_opijnen_concept_2017}. Therefore, evaluating retrieval in specialized domains requires a preliminary definition of relevance.}\citep[p. 155]{manning2008introduction}\cite{gan2025retrieval}.
+
+\begin{metricbox}[Metric: Precision@k]
+\begin{equation}
+    \text{Precision@}k = \frac{|\mathcal{C}_{q,k} \cap \mathcal{R}_q|}{k}
+\end{equation}
+\textbf{Ideal:} 1 (All top-$k$ documents are relevant). \quad \textbf{Pathological:} 0.
+\end{metricbox}
+
+Another foundational metric is Recall@k, which measures the fraction of all ground-truth relevant documents that are successfully retrieved within the top-$k$ candidates \citep[p. 155]{manning2008introduction}.
+
+\begin{metricbox}[Metric: Recall@k]
+
+\begin{equation}
+    \text{Recall@}k = \frac{|\mathcal{C}_{q,k} \cap \mathcal{R}_q|}{|\mathcal{R}_q|}
+\end{equation}
+\textbf{Ideal:} 1 (All relevant documents are found). \quad \textbf{Pathological:} 0.
+\end{metricbox}
+
+Both Precision and Recall are set-based measures. They evaluate only the presence or absence of documents, disregarding their specific order. While these methods are foundational, they are insufficient for evaluating \ac{RAG} systems \citep[p. 158 f.]{manning2008introduction}\cite{es2023ragas}. In a \ac{RAG} context, the order of documents directly impacts the downstream generator, as \acp{LLM} are highly susceptible to \emph{lost-in-the-middle} effects \cite{Liu2023_LostInTheMiddle}. Thus, evaluation requires rank-aware metrics that penalize systems for placing relevant documents lower in the context window \citep[p. 159]{manning2008introduction}.  To apply these rank-aware metrics, the retrieved candidate set $\mathcal{C}_{q,k}$ is formalized as an ordered sequence, or to be more precise a ranked list $L_{q,k} = (c_1, c_2, \dots, c_k)$. One widely used rank-aware metric is the \ac{MRR}, which evaluates the position of the first relevant document within this ordered list \cite{gan2025retrieval}.
+
+
+\begin{metricbox}[Metric: Mean Reciprocal Rank (\acs{MRR})]
+Let $\text{rank}_i$ be the position of the first relevant document for the $i$-th query in the ranked list $L_{q,k}$. The \acs{MRR} averages the reciprocal of this rank across all $|\mathcal{Q}|$ queries:
+\begin{equation}
+    \text{\acs{MRR}} = \frac{1}{|\mathcal{Q}|} \sum_{i=1}^{|\mathcal{Q}|} \frac{1}{\text{rank}_i}
+\end{equation}
+\textbf{Ideal:} 1 (The first retrieved document is always relevant). \quad \textbf{Pathological:} $\to 0$.
+\end{metricbox}
+
+
+Unlike Recall and \ac{MRR}, which assume binary relevance, the \ac{nDCG} accommodates graded relevance \citep[p. 162 f.]{manning2008introduction}\cite{gan2025retrieval}.
+
+\begin{metricbox}[Metric: Normalized Discounted Cumulative Gain (\ac{nDCG}@k)]
+Let $rel_i$ be the graded relevance score of the document at rank $i$ in $L_{q,k}$. The \acs{DCG} penalizes relevant documents that appear lower in the ranking using a logarithmic discount:
+\begin{equation}
+    \text{\acs{DCG}@}k = \sum_{i=1}^k \frac{rel_i}{\log_2(i+1)}
+\end{equation}
+To ensure comparability across queries with varying numbers of relevant documents, the score is normalized by the Ideal \acs{DCG} (IDCG@k), which is the \acs{DCG} obtained for an perfectly sorted list $\hat{L}_{q,k}$.
+\begin{equation}
+    \text{nDCG@}k = \frac{\text{\acs{DCG}@}k}{\text{IDCG@}k}
+\end{equation}
+\textbf{Ideal:} 1 (Perfect ranking of all relevant documents). \quad \textbf{Pathological:} 0.
+\end{metricbox}
+
+In practice, the choice of the primary evaluation metric must align with the specific requirements of the downstream \ac{RAG} application \cite{gao_2024_rag,gan2025retrieval}.

@@ -1,0 +1,95 @@
+@inproceedings{wrzalik_gerdalir_2021,
+    title = {{G}er{D}a{LIR}: A {G}erman Dataset for Legal Information Retrieval},
+    author = {Wrzalik, Marco  and
+      Krechel, Dirk},
+    editor = {Aletras, Nikolaos  and
+      Androutsopoulos, Ion  and
+      Barrett, Leslie  and
+      Goanta, Catalina  and
+      Preotiuc-Pietro, Daniel},
+    booktitle = {Proceedings of the Natural Legal Language Processing Workshop 2021},
+    month = {november},
+    year = {2021},
+    address = {Punta Cana, Dominican Republic},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2021.nllp-1.13/},
+    doi = {10.18653/v1/2021.nllp-1.13},
+    pages = {123--128},
+    abstract = "We present GerDaLIR, a German Dataset for Legal Information Retrieval based on case documents from the open legal information platform Open Legal Data. The dataset consists of 123K queries, each labelled with at least one relevant document in a collection of 131K case documents. We conduct several baseline experiments including BM25 and a state-of-the-art neural re-ranker. With our dataset, we aim to provide a standardized benchmark for German LIR and promote open research in this area. Beyond that, our dataset comprises sufficient training data to be used as a downstream task for German or multilingual language models."
+}
+
+@misc{bönisch2025finding,
+      title={Finding Needles in Emb(a)dding Haystacks: Legal Document Retrieval via Bagging and SVR Ensembles}, 
+      author={Kevin Bönisch and Alexander Mehler},
+      year={2025},
+      eprint={2501.05018},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2501.05018}, 
+}
+
+
+@inproceedings{niklaus_2023_lextreme,
+    title = {{LEXTREME}: A Multi-Lingual and Multi-Task Benchmark for the Legal Domain},
+    author = {Niklaus, Joel  and
+      Matoshi, Veton  and
+      Rani, Pooja  and
+      Galassi, Andrea  and
+      St{\"u}rmer, Matthias  and
+      Chalkidis, Ilias},
+    editor = {Bouamor, Houda  and
+      Pino, Juan  and
+      Bali, Kalika},
+    booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2023},
+    month = {december},
+    year = {2023},
+    address = {Singapore},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2023.findings-emnlp.200/},
+    doi = {10.18653/v1/2023.findings-emnlp.200},
+    pages = {3016--3054},
+    abstract = {Lately, propelled by phenomenal advances around the transformer architecture, the legal NLP field has enjoyed spectacular growth. To measure progress, well-curated and challenging benchmarks are crucial. Previous efforts have produced numerous benchmarks for general NLP models, typically based on news or Wikipedia. However, these may not fit specific domains such as law, with its unique lexicons and intricate sentence structures. Even though there is a rising need to build NLP systems for languages other than English, many benchmarks are available only in English and no multilingual benchmark exists in the legal NLP field. We survey the legal NLP literature and select 11 datasets covering 24 languages, creating LEXTREME. To fairly compare models, we propose two aggregate scores, i.e., dataset aggregate score and language aggregate score. Our results show that even the best baseline only achieves modest results, and also ChatGPT struggles with many tasks. This indicates that LEXTREME remains a challenging task with ample room for improvement. To facilitate easy use for researchers and practitioners, we release LEXTREME on huggingface along with a public leaderboard and the necessary code to evaluate models. We also provide a public Weights and Biases project containing all runs for transparency.}
+}
+
+
+@inproceedings{chalkidis_2022_lexglue,
+    title = {{L}ex{GLUE}: A Benchmark Dataset for Legal Language Understanding in {E}nglish},
+    author = {Chalkidis, Ilias  and
+      Jana, Abhik  and
+      Hartung, Dirk  and
+      Bommarito, Michael  and
+      Androutsopoulos, Ion  and
+      Katz, Daniel  and
+      Aletras, Nikolaos},
+    editor = {Muresan, Smaranda  and
+      Nakov, Preslav  and
+      Villavicencio, Aline},
+    booktitle = {Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+    month = {may},
+    year = {2022},
+    address = {Dublin, Ireland},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2022.acl-long.297/},
+    doi = {10.18653/v1/2022.acl-long.297},
+    pages = {4310--4330},
+    abstract = "Laws and their interpretations, legal arguments and agreements are typically expressed in writing, leading to the production of vast corpora of legal text. Their analysis, which is at the center of legal practice, becomes increasingly elaborate as these collections grow in size. Natural language understanding (NLU) technologies can be a valuable tool to support legal practitioners in these endeavors. Their usefulness, however, largely depends on whether current state-of-the-art models can generalize across various tasks in the legal domain. To answer this currently open question, we introduce the Legal General Language Understanding Evaluation (LexGLUE) benchmark, a collection of datasets for evaluating model performance across a diverse set of legal NLU tasks in a standardized way. We also provide an evaluation and analysis of several generic and legal-oriented models demonstrating that the latter consistently offer performance improvements across multiple tasks."
+}
+
+@inproceedings{Muennighoff2023_MTEB,
+    title = {{MTEB}: Massive Text Embedding Benchmark},
+    author = {Muennighoff, Niklas  and
+      Tazi, Nouamane  and
+      Magne, Loic  and
+      Reimers, Nils},
+    editor = {Vlachos, Andreas  and
+      Augenstein, Isabelle},
+    booktitle = {Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics},
+    month = {may},
+    year = {2023},
+    address = {Dubrovnik, Croatia},
+    publisher = {Association for Computational Linguistics},
+    url = {https://aclanthology.org/2023.eacl-main.148/},
+    doi = {10.18653/v1/2023.eacl-main.148},
+    pages = {2014--2037},
+    abstract = "Text embeddings are commonly evaluated on a small set of datasets from a single task not covering their possible applications to other tasks. It is unclear whether state-of-the-art embeddings on semantic textual similarity (STS) can be equally well applied to other tasks like clustering or reranking. This makes progress in the field difficult to track, as various models are constantly being proposed without proper evaluation. To solve this problem, we introduce the Massive Text Embedding Benchmark (MTEB). MTEB spans 8 embedding tasks covering a total of 58 datasets and 112 languages. Through the benchmarking of 33 models on MTEB, we establish the most comprehensive benchmark of text embeddings todate. We find that no particular text embedding method dominates across all tasks. This suggests that the field has yet to converge on a universal text embedding method and scale it up sufficiently to provide state-of-theart results on all embedding tasks. MTEB comes with open-source code and a public leaderboard at \url{https://github.com/embeddings-benchmark/mteb}."
+}

@@ -1,0 +1,40 @@
+@article{basili_oalquestionmetric_1984,
+  author={Basili, Victor R. and Weiss, David M.},
+  journal={IEEE Transactions on Software Engineering}, 
+  title={A Methodology for Collecting Valid Software Engineering Data}, 
+  year={1984},
+  volume={SE-10},
+  number={6},
+  pages={728-738},
+  keywords={Software engineering;Programming;Application software;Error correction;Laboratories;Control systems;Error correction codes;Software maintenance;Software testing;Data engineering;Data collection;data collection methodology;error analysis;error classification;software engineering experimentation},
+  doi={10.1109/TSE.1984.5010301}}
+
+@book{solingen_goalquestionmetric_1999,
+	location = {London},
+	title = {The goal/question/metric method: a practical guide for quality improvement of software development},
+	isbn = {978-0-07-709553-6},
+	shorttitle = {The goal/question/metric method},
+	pagetotal = {199},
+	publisher = {The {McGraw}-Hill Companies},
+	author = {Solingen, Rini van and Berghout, Egon and Berghout, Egon},
+	date = {1999},
+	langid = {english},
+	file = {GQMGuideSolingenBerghoutnonprintable:/Users/fregler001/Zotero/storage/XGN4TLEZ/Solingen et al. - 1999 - The goalquestionmetric method a practical guide for quality improvement of software development.pdf:application/pdf},
+}
+
+@article{caldiera1994goal,
+  title={Goal question metric paradigm},
+  author={Caldiera, Victor R Basili-Gianluigi and Rombach, H Dieter},
+  journal={Encyclopedia of software engineering},
+  volume={1},
+  number={528-532},
+  pages={6},
+  year={1994}
+}
+
+@incollection{basili_goal_1994,
+	author = {Basili, Victor R. and Caldiera, Gianluigi and Rombach, H. Dieter},
+	title = {Goal Question Metric Paradigm},
+	booktitle = {Encyclopedia of Software Engineering},
+	year = {1994}
+}
